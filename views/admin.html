@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — Dumbarwadi Gram Panchayat</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #002868; --primary-dark: #001a4a; --primary-light: #0b3d91;
+  --accent: #004c8c; --secondary: #c9a227; --success: #138808; --danger: #dc2626;
+  --warning: #f59e0b; --bg-light: #f5f7fb; --bg-white: #ffffff; --text-dark: #0a0f1e;
+  --text-gray: #4a5568; --text-light: #8a93a6; --border: #d8e0f0;
+  --shadow: 0 4px 20px rgba(0,40,104,0.08);
+  --gradient: linear-gradient(135deg, #002868 0%, #0b3d91 100%);
+}
+body {
+  font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+  background: var(--bg-light); color: var(--text-dark); line-height: 1.6; min-height: 100vh;
+}
+body.lang-mr { font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif; }
+.login-wrap {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: var(--gradient); padding: 20px;
+}
+.login-card {
+  background: var(--bg-white); border-radius: 16px; padding: 40px;
+  width: 100%; max-width: 420px; box-shadow: var(--shadow);
+}
+.login-card h1 {
+  font-size: 1.5rem; color: var(--primary); margin-bottom: 8px; text-align: center;
+}
+.login-card .subtitle {
+  color: var(--text-gray); text-align: center; margin-bottom: 28px; font-size: 0.9rem;
+}
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 6px; color: var(--text-dark);
+}
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-size: 0.95rem; font-family: inherit; transition: border-color 0.2s;
+  background: var(--bg-white);
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  outline: none; border-color: var(--primary);
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 22px; border: none; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 500; cursor: pointer; font-family: inherit; transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-primary { background: var(--gradient); color: white; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,40,104,0.25); }
+.btn-success { background: var(--success); color: white; }
+.btn-success:hover { background: #106e06; }
+.btn-danger { background: var(--danger); color: white; }
+.btn-danger:hover { background: #b91c1c; }
+.btn-secondary { background: var(--text-gray); color: white; }
+.btn-secondary:hover { background: #2d3748; }
+.btn-sm { padding: 6px 14px; font-size: 0.8rem; }
+.btn-block { width: 100%; }
+.error-box {
+  background: #fee2e2; color: var(--danger); padding: 10px 14px; border-radius: 8px;
+  margin-bottom: 16px; font-size: 0.88rem;
+}
+.admin-layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+.sidebar {
+  background: var(--gradient); color: white; padding: 24px 0; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto;
+}
+.sidebar-brand {
+  padding: 0 24px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px;
+}
+.sidebar-brand h2 { font-size: 1.1rem; font-weight: 600; }
+.sidebar-brand p { font-size: 0.78rem; opacity: 0.8; margin-top: 4px; }
+.nav-item {
+  padding: 11px 24px; cursor: pointer; display: flex; align-items: center; gap: 10px;
+  font-size: 0.9rem; transition: background 0.2s; border-left: 3px solid transparent;
+}
+.nav-item:hover { background: rgba(255,255,255,0.08); }
+.nav-item.active { background: rgba(255,255,255,0.12); border-left-color: var(--secondary); }
+.nav-icon { width: 18px; height: 18px; opacity: 0.9; }
+.sidebar-footer {
+  padding: 16px 24px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: auto;
+  position: absolute; bottom: 0; left: 0; right: 0;
+}
+.sidebar-footer .user-info { font-size: 0.82rem; margin-bottom: 10px; opacity: 0.9; }
+.main { padding: 28px 36px; overflow-y: auto; }
+.page-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;
+  flex-wrap: wrap; gap: 12px;
+}
+.page-header h1 { font-size: 1.6rem; color: var(--primary); }
+.lang-toggle {
+  display: flex; gap: 6px; background: white; padding: 4px; border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.lang-toggle button {
+  padding: 6px 14px; border: none; background: transparent; cursor: pointer;
+  border-radius: 6px; font-size: 0.82rem; font-family: inherit; font-weight: 500;
+  color: var(--text-gray);
+}
+.lang-toggle button.active { background: var(--primary); color: white; }
+.toolbar {
+  display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;
+}
+.toolbar input[type="search"] {
+  flex: 1; min-width: 200px; padding: 9px 14px; border: 1.5px solid var(--border);
+  border-radius: 8px; font-family: inherit; font-size: 0.9rem;
+}
+.toolbar select {
+  padding: 9px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-family: inherit; font-size: 0.9rem;
+}
+.data-table {
+  width: 100%; border-collapse: collapse; background: white; border-radius: 12px;
+  overflow: hidden; box-shadow: var(--shadow);
+}
+.data-table th {
+  background: var(--primary); color: white; padding: 12px 16px; text-align: left;
+  font-size: 0.82rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.data-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #f9fafc; }
+.empty-state {
+  text-align: center; padding: 60px 20px; color: var(--text-light);
+}
+.empty-state p { margin-top: 10px; }
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none;
+  align-items: center; justify-content: center; z-index: 1000; padding: 20px;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: white; border-radius: 14px; width: 100%; max-width: 640px; max-height: 90vh;
+  overflow-y: auto; box-shadow: var(--shadow);
+}
+.modal-header {
+  padding: 18px 24px; border-bottom: 1px solid var(--border); display: flex;
+  align-items: center; justify-content: space-between;
+}
+.modal-header h2 { font-size: 1.15rem; color: var(--primary); }
+.modal-close {
+  background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-gray);
+  line-height: 1;
+}
+.modal-body { padding: 20px 24px; }
+.modal-footer {
+  padding: 16px 24px; border-top: 1px solid var(--border); display: flex;
+  justify-content: flex-end; gap: 10px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 768px) {
+  .form-row { grid-template-columns: 1fr; }
+  .admin-layout { grid-template-columns: 1fr; }
+  .sidebar { position: relative; height: auto; }
+  .sidebar-footer { position: relative; }
+  .main { padding: 20px; }
+}
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.75rem;
+  font-weight: 500;
+}
+.badge-pending { background: #fef3c7; color: #92400e; }
+.badge-approved { background: #d1fae5; color: #065f46; }
+.badge-rejected { background: #fee2e2; color: #991b1b; }
+.badge-info { background: #dbeafe; color: #1e40af; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
+.stat-card {
+  background: white; border-radius: 12px; padding: 20px; box-shadow: var(--shadow);
+}
+.stat-card .label { font-size: 0.82rem; color: var(--text-gray); margin-bottom: 6px; }
+.stat-card .value { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+.stat-card .trend { font-size: 0.78rem; color: var(--success); margin-top: 4px; }
+.actions-cell { display: flex; gap: 6px; }
+.detail-section { margin-bottom: 18px; }
+.detail-section h3 { font-size: 0.95rem; color: var(--primary); margin-bottom: 8px; font-weight: 600; }
+.detail-item { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.88rem; }
+.detail-item .k { color: var(--text-gray); }
+.detail-item .v { color: var(--text-dark); font-weight: 500; }
+.hidden { display: none !important; }
+.loader {
+  display: inline-block; width: 20px; height: 20px; border: 2px solid var(--border);
+  border-top-color: var(--primary); border-radius: 50%; animation: spin 0.6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.toast {
+  position: fixed; top: 20px; right: 20px; padding: 12px 20px; border-radius: 8px;
+  color: white; font-weight: 500; z-index: 2000; animation: slideIn 0.3s;
+}
+.toast-success { background: var(--success); }
+.toast-error { background: var(--danger); }
+.toast-info { background: var(--primary); }
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+</style>
+</head>
+<body>
+<div id="loginView" class="login-wrap hidden">
+  <div class="login-card">
+    <h1 data-en="Gram Panchayat Admin" data-mr="ग्राम पंचायत प्रशासक">Gram Panchayat Admin</h1>
+    <p class="subtitle" data-en="Sign in to manage the village portal" data-mr="गाव पोर्टल व्यवस्थापित करण्यासाठी साइन इन करा">Sign in to manage the village portal</p>
+    <div id="loginError" class="error-box hidden"></div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label data-en="Username" data-mr="वापरकर्तानाव">Username</label>
+        <input type="text" id="loginUsername" value="admin" required>
+      </div>
+      <div class="form-group">
+        <label data-en="Password" data-mr="पासवर्ड">Password</label>
+        <input type="password" id="loginPassword" placeholder="admin123" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" data-en="Sign In" data-mr="साइन इन">Sign In</button>
+    </form>
+  </div>
+</div>
+
+<div id="adminView" class="admin-layout hidden">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <h2 data-en="GP Admin Panel" data-mr="जीपी प्रशासन पॅनेल">GP Admin Panel</h2>
+      <p>Dumbarwadi</p>
+    </div>
+    <nav id="sidebarNav">
+      <div class="nav-item active" data-view="dashboard">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <span data-en="Dashboard" data-mr="डॅशबोर्ड">Dashboard</span>
+      </div>
+      <div class="nav-item" data-view="schemes">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span data-en="Schemes" data-mr="योजना">Schemes</span>
+      </div>
+      <div class="nav-item" data-view="notices">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span data-en="Notices" data-mr="सूचना">Notices</span>
+      </div>
+      <div class="nav-item" data-view="services">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span data-en="Services" data-mr="सेवा">Services</span>
+      </div>
+      <div class="nav-item" data-view="members">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span data-en="Panchayat Members" data-mr="पंचायत सदस्य">Panchayat Members</span>
+      </div>
+      <div class="nav-item" data-view="projects">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        <span data-en="Projects" data-mr="प्रकल्प">Projects</span>
+      </div>
+      <div class="nav-item" data-view="gramsabha">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+        <span data-en="Gram Sabha" data-mr="ग्रामसभा">Gram Sabha</span>
+      </div>
+      <div class="nav-item" data-view="contacts">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-en="Contacts" data-mr="संपर्क">Contacts</span>
+      </div>
+      <div class="nav-item" data-view="scheme-applications">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+        <span data-en="Scheme Apps" data-mr="योजना अर्ज">Scheme Apps</span>
+      </div>
+      <div class="nav-item" data-view="service-applications">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13l2 2 4-4"/></svg>
+        <span data-en="Service Apps" data-mr="सेवा अर्ज">Service Apps</span>
+      </div>
+      <div class="nav-item" data-view="complaints">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span data-en="Complaints" data-mr="तक्रारी">Complaints</span>
+      </div>
+      <div class="nav-item" data-view="contact-messages">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span data-en="Messages" data-mr="संदेश">Messages</span>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-info" id="userInfo">admin</div>
+      <button class="btn btn-sm btn-secondary btn-block" id="logoutBtn" data-en="Logout" data-mr="बाहेर पडणे">Logout</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page-header">
+      <h1 id="pageTitle" data-en="Dashboard" data-mr="डॅशबोर्ड">Dashboard</h1>
+      <div class="lang-toggle">
+        <button id="btnEn" class="active">EN</button>
+        <button id="btnMr">मराठी</button>
+      </div>
+    </div>
+    <div id="viewDashboard"></div>
+    <div id="viewSchemes" class="hidden"></div>
+    <div id="viewNotices" class="hidden"></div>
+    <div id="viewServices" class="hidden"></div>
+    <div id="viewMembers" class="hidden"></div>
+    <div id="viewProjects" class="hidden"></div>
+    <div id="viewGramsabha" class="hidden"></div>
+    <div id="viewContacts" class="hidden"></div>
+    <div id="viewSchemeApplications" class="hidden"></div>
+    <div id="viewServiceApplications" class="hidden"></div>
+    <div id="viewComplaints" class="hidden"></div>
+    <div id="viewContactMessages" class="hidden"></div>
+  </main>
+</div>
+
+<div id="modal" class="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Title</h2>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<script>
+const API_BASE = '/api/admin';
+let csrfToken = '';
+let currentLang = 'en';
+
+async function api(url, opts = {}) {
+  if (!csrfToken) {
+    const r = await fetch('/api/csrf-token');
+    csrfToken = (await r.json()).token;
+  }
+  const headers = {
+    'Content-Type': 'application/json',
+    'X-CSRF-Token': csrfToken,
+    ...(opts.headers || {}),
+  };
+  const res = await fetch(url, { ...opts, headers, credentials: 'same-origin' });
+  if (res.status === 401) { showLogin(); throw new Error('Unauthorized'); }
+  let data; try { data = await res.json(); } catch(e) { data = null; }
+  if (!res.ok) throw new Error(data?.error || 'Request failed');
+  return data;
+}
+
+function t(en, mr) { return currentLang === 'mr' ? mr : en; }
+
+function applyLang() {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const txt = el.getAttribute(currentLang === 'mr' ? 'data-mr' : 'data-en');
+    if (txt) el.textContent = txt;
+  });
+  document.body.classList.toggle('lang-mr', currentLang === 'mr');
+}
+
+function toast(msg, type='info') {
+  const el = document.createElement('div');
+  el.className = `toast toast-${type}`;
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 3500);
+}
+
+function showModal(title, bodyHTML, footerHTML = '') {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalBody').innerHTML = bodyHTML;
+  document.getElementById('modalFooter').innerHTML = footerHTML;
+  document.getElementById('modal').classList.add('show');
+}
+function hideModal() { document.getElementById('modal').classList.remove('show'); }
+document.getElementById('modalClose').onclick = hideModal;
+document.getElementById('modal').onclick = (e) => { if (e.target.id === 'modal') hideModal(); };
+
+function showLogin() {
+  document.getElementById('loginView').classList.remove('hidden');
+  document.getElementById('adminView').classList.add('hidden');
+  applyLang();
+}
+
+async function showAdmin() {
+  document.getElementById('loginView').classList.add('hidden');
+  document.getElementById('adminView').classList.remove('hidden');
+  try {
+    const me = await api('/api/admin/me');
+    document.getElementById('userInfo').textContent = me.username || 'admin';
+  } catch(e) {}
+  applyLang();
+  loadView('dashboard');
+}
+
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const errEl = document.getElementById('loginError');
+  errEl.classList.add('hidden');
+  try {
+    await api('/api/admin/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: document.getElementById('loginUsername').value,
+        password: document.getElementById('loginPassword').value,
+      }),
+    });
+    toast(t('Signed in successfully', 'यशस्वीरित्या साइन इन'), 'success');
+    showAdmin();
+  } catch(e) {
+    errEl.textContent = e.message;
+    errEl.classList.remove('hidden');
+  }
+});
+
+document.getElementById('logoutBtn').onclick = async () => {
+  try { await api('/api/admin/logout', { method: 'POST' }); } catch(e) {}
+  csrfToken = '';
+  showLogin();
+};
+
+document.getElementById('btnEn').onclick = () => {
+  currentLang = 'en';
+  document.getElementById('btnEn').classList.add('active');
+  document.getElementById('btnMr').classList.remove('active');
+  const cur = document.querySelector('.nav-item.active').dataset.view;
+  applyLang(); loadView(cur);
+};
+document.getElementById('btnMr').onclick = () => {
+  currentLang = 'mr';
+  document.getElementById('btnMr').classList.add('active');
+  document.getElementById('btnEn').classList.remove('active');
+  const cur = document.querySelector('.nav-item.active').dataset.view;
+  applyLang(); loadView(cur);
+};
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.onclick = () => {
+    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    loadView(item.dataset.view);
+  };
+});
+
+const VIEW_TITLES = {
+  dashboard: ['Dashboard', 'डॅशबोर्ड'],
+  schemes: ['Schemes', 'योजना'],
+  notices: ['Notices', 'सूचना'],
+  services: ['Services', 'सेवा'],
+  members: ['Panchayat Members', 'पंचायत सदस्य'],
+  projects: ['Projects', 'प्रकल्प'],
+  gramsabha: ['Gram Sabha Meetings', 'ग्रामसभा बैठका'],
+  contacts: ['Contacts', 'संपर्क'],
+  'scheme-applications': ['Scheme Applications', 'योजना अर्ज'],
+  'service-applications': ['Service Applications', 'सेवा अर्ज'],
+  complaints: ['Complaints', 'तक्रारी'],
+  'contact-messages': ['Contact Messages', 'संपर्क संदेश'],
+};
+
+function loadView(view) {
+  const titles = VIEW_TITLES[view] || [view, view];
+  document.getElementById('pageTitle').textContent = titles[currentLang === 'mr' ? 1 : 0];
+  document.querySelectorAll('[id^="view"]').forEach(el => el.classList.add('hidden'));
+  const map = {
+    dashboard: renderDashboard,
+    schemes: () => renderCrud('schemes', 'Scheme', ['title_en','title_mr','desc_en','desc_mr'], ['title_en','title_mr','desc_en','desc_mr','tags_en','tags_mr','icon','accent','eligibility_en','eligibility_mr','application_process_en','application_process_mr','benefits_en','benefits_mr','documents_required_en','documents_required_mr','scheme_code']),
+    notices: () => renderCrud('notices', 'Notice', ['date_iso','title_en','title_mr','desc_en','desc_mr'], ['date_iso','month_en','month_mr','day','title_en','title_mr','desc_en','desc_mr','badge_en','badge_mr','badge_color','notice_type','pdf_attachment','download_filename']),
+    services: () => renderCrud('services', 'Service', ['title_en','title_mr','desc_en','desc_mr'], ['title_en','title_mr','desc_en','desc_mr','icon']),
+    members: () => renderCrud('panchayat-members', 'Member', ['name_en','name_mr','role_en','role_mr','mobile'], ['name_en','name_mr','role_en','role_mr','mobile','email','photo','term_start','term_end','party_name','ward_no'], { ward_no: 'number' }),
+    projects: () => renderCrud('projects', 'Project', ['title_en','title_mr'], ['title_en','title_mr','category_en','category_mr','status','start_date','end_date','contractor_name','funding_source_en','funding_source_mr','description_en','description_mr','photos','progress_percent','cost_total','cost_spent'], { progress_percent: 'number', cost_total: 'number', cost_spent: 'number' }),
+    gramsabha: () => renderCrud('gram-sabha-meetings', 'Meeting', ['meeting_date','meeting_time','venue_en','chairperson_en'], ['meeting_date','meeting_time','venue_en','venue_mr','chairperson_en','chairperson_mr','agenda_pdf','minutes_en','minutes_mr','minutes_pdf','status','attendance_count'], { attendance_count: 'number' }),
+    contacts: () => renderCrud('contacts', 'Contact', ['person_name','role_en','role_mr','mobile'], ['person_name','role_en','role_mr','mobile','email','extra_label_en','extra_label_mr','extra_value','accent','is_emergency'], { is_emergency: 'number' }),
+    'scheme-applications': renderSchemeApplications,
+    'service-applications': renderServiceApplications,
+    complaints: renderComplaints,
+    'contact-messages': renderContactMessages,
+  };
+  const fn = map[view];
+  if (fn) fn();
+}
+
+async function renderDashboard() {
+  const el = document.getElementById('viewDashboard');
+  el.innerHTML = '<div style="text-align:center;padding:40px"><div class="loader"></div></div>';
+  el.classList.remove('hidden');
+  try {
+    const [schemes, notices, apps, complaints, messages] = await Promise.all([
+      api(`${API_BASE}/schemes`),
+      api(`${API_BASE}/notices`),
+      api(`${API_BASE}/scheme-applications`),
+      api(`${API_BASE}/complaints`),
+      api(`${API_BASE}/contact-messages`),
+    ]);
+    const pendingApps = (apps.data || []).filter(a => a.status === 'pending').length;
+    const pendingComp = (complaints.data || []).filter(c => c.status !== 'resolved' && c.status !== 'closed').length;
+    const unreadMsg = (messages.data || []).filter(m => m.status !== 'replied').length;
+    el.innerHTML = `
+      <div class="stat-grid">
+        <div class="stat-card"><div class="label">${t('Total Schemes','एकूण योजना')}</div><div class="value">${schemes.data?.length || 0}</div></div>
+        <div class="stat-card"><div class="label">${t('Active Notices','सक्रिय सूचना')}</div><div class="value">${notices.data?.length || 0}</div></div>
+        <div class="stat-card"><div class="label">${t('Pending Applications','प्रलंबित अर्ज')}</div><div class="value">${pendingApps}</div></div>
+        <div class="stat-card"><div class="label">${t('Open Complaints','खुल्या तक्रारी')}</div><div class="value">${pendingComp}</div></div>
+        <div class="stat-card"><div class="label">${t('Unread Messages','न वाचलेले संदेश')}</div><div class="value">${unreadMsg}</div></div>
+        <div class="stat-card"><div class="label">${t('Total Applications','एकूण अर्ज')}</div><div class="value">${apps.data?.length || 0}</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div style="background:white;border-radius:12px;padding:20px;box-shadow:var(--shadow)">
+          <h3 style="color:var(--primary);margin-bottom:16px">${t('Recent Scheme Applications','अलीकडील योजना अर्ज')}</h3>
+          ${(apps.data || []).slice(0, 5).map(a => `
+            <div style="padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between">
+              <div>
+                <div style="font-weight:500">${currentLang==='mr' ? a.applicant_name_mr : a.applicant_name_en} — ${currentLang==='mr' ? a.scheme_title_mr : a.scheme_title_en}</div>
+                <div style="font-size:0.8rem;color:var(--text-gray)">${a.mobile} • ${new Date(a.created_at).toLocaleDateString()}</div>
+              </div>
+              <span class="badge badge-${a.status || 'info'}">${a.status || 'pending'}</span>
+            </div>
+          `).join('') || `<div style="color:var(--text-light);padding:20px;text-align:center">${t('No applications yet','अद्याप कोणतेही अर्ज नाहीत')}</div>`}
+        </div>
+        <div style="background:white;border-radius:12px;padding:20px;box-shadow:var(--shadow)">
+          <h3 style="color:var(--primary);margin-bottom:16px">${t('Recent Complaints','अलीकडील तक्रारी')}</h3>
+          ${(complaints.data || []).slice(0, 5).map(c => `
+            <div style="padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-weight:500">${c.complaint_type}</div>
+                <div style="font-size:0.8rem;color:var(--text-gray)">${c.location_ward || '-'} • ${new Date(c.created_at).toLocaleDateString()}</div>
+              </div>
+              <span class="badge badge-${c.status==='resolved'||c.status==='closed'?'approved':'pending'}">${c.status || 'open'}</span>
+            </div>
+          `).join('') || `<div style="color:var(--text-light);padding:20px;text-align:center">${t('No complaints yet','अद्याप कोणत्याही तक्रारी नाहीत')}</div>`}
+        </div>
+      </div>
+    `;
+  } catch(e) {
+    el.innerHTML = `<div style="color:var(--danger);text-align:center;padding:40px">${e.message}</div>`;
+  }
+}
+
+async function renderCrud(route, label, requiredFields, allFields, typeHints = {}) {
+  const viewId = 'view' + label.replace(/[^a-zA-Z]/g, '') + 's';
+  let containerId = Object.entries({
+    'schemes':'viewSchemes','notices':'viewNotices','services':'viewServices',
+    'panchayat-members':'viewMembers','projects':'viewProjects',
+    'gram-sabha-meetings':'viewGramsabha','contacts':'viewContacts'
+  }).find(([k]) => k === route)?.[1];
+  if (!containerId) return;
+  const el = document.getElementById(containerId);
+  el.classList.remove('hidden');
+  el.innerHTML = '<div style="text-align:center;padding:40px"><div class="loader"></div></div>';
+
+  try {
+    const res = await api(`${API_BASE}/${route}`);
+    const rows = res.data || [];
+    const listFields = allFields.slice(0, 4);
+    const toolbar = `
+      <div class="toolbar">
+        <input type="search" id="search-${route}" placeholder="${t('Search...','शोधा...')}">
+        <button class="btn btn-primary btn-sm" id="add-${route}">+ ${t('Add New','नवीन जोडा')} ${label}</button>
+      </div>
+    `;
+    let tableHTML = rows.length ? `
+      <table class="data-table">
+        <thead><tr>${listFields.map(f => `<th>${f}</th>`).join('')}<th style="width:160px">${t('Actions','क्रिया')}</th></tr></thead>
+        <tbody>
+          ${rows.map(r => `
+            <tr>
+              ${listFields.map(f => `<td>${r[f] || ''}</td>`).join('')}
+              <td class="actions-cell">
+                <button class="btn btn-sm btn-secondary" onclick="editItem('${route}','${label}',${r.id},${JSON.stringify(requiredFields)},${JSON.stringify(allFields)},${JSON.stringify(typeHints)})">${t('Edit','संपादित')}</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteItem('${route}','${label}',${r.id})">${t('Delete','हटवा')}</button>
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    ` : `<div class="empty-state" style="background:white;border-radius:12px;box-shadow:var(--shadow)"><h3>${t('No items yet','अद्याप आयटम नाहीत')}</h3><p>${t('Click "Add New" to create one','नवीन जोडा क्लिक करा')}</p></div>`;
+
+    el.innerHTML = toolbar + tableHTML;
+    document.getElementById(`add-${route}`).onclick = () => editItem(route, label, null, requiredFields, allFields, typeHints);
+    const sinput = document.getElementById(`search-${route}`);
+    sinput.oninput = () => {
+      const q = sinput.value.toLowerCase();
+      el.querySelectorAll('tbody tr').forEach(tr => {
+        tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    };
+  } catch(e) {
+    el.innerHTML = `<div style="color:var(--danger);text-align:center;padding:40px">${e.message}</div>`;
+  }
+}
+
+window.editItem = async function(route, label, id, requiredFields, allFields, typeHints) {
+  let existing = {};
+  if (id) {
+    try {
+      const res = await api(`${API_BASE}/${route}`);
+      existing = (res.data || []).find(r => r.id === id) || {};
+    } catch(e) {}
+  }
+  const title = (id ? t('Edit','संपादित') : t('Add New','नवीन जोडा')) + ' ' + label;
+  const body = `
+    <form id="itemForm">
+      ${allFields.map(f => {
+        const type = typeHints[f] || 'text';
+        const inputType = type === 'number' ? 'number' : (type.includes('desc') || type.includes('process') || type.includes('benefits') || type.includes('eligibility') || type.includes('documents') || type.includes('minutes') || type.includes('description') ? 'textarea' : 'text');
+        const isRequired = requiredFields.includes(f);
+        return `
+          <div class="form-group">
+            <label>${f}${isRequired ? ' *' : ''}</label>
+            ${inputType === 'textarea'
+              ? `<textarea name="${f}" rows="3" ${isRequired?'required':''}>${existing[f] || ''}</textarea>`
+              : `<input type="${inputType}" name="${f}" value="${existing[f] ?? ''}" ${isRequired?'required':''} ${type==='number'?'step="any"':''}>`
+            }
+          </div>
+        `;
+      }).join('')}
+    </form>
+  `;
+  const footer = `
+    <button class="btn btn-secondary" onclick="hideModal()">${t('Cancel','रद्द करा')}</button>
+    <button class="btn btn-primary" onclick="submitItem('${route}',${id})">${id ? t('Save Changes','बदल जतन करा') : t('Create','तयार करा')}</button>
+  `;
+  showModal(title, body, footer);
+};
+
+window.submitItem = async function(route, id) {
+  const form = document.getElementById('itemForm');
+  const fd = new FormData(form);
+  const body = {};
+  for (const [k, v] of fd.entries()) body[k] = v === '' ? null : v;
+  try {
+    if (id) {
+      await api(`${API_BASE}/${route}/${id}`, { method: 'PUT', body: JSON.stringify(body) });
+      toast(t('Updated successfully', 'यशस्वीरित्या अपडेट'), 'success');
+    } else {
+      await api(`${API_BASE}/${route}`, { method: 'POST', body: JSON.stringify(body) });
+      toast(t('Created successfully', 'यशस्वीरित्या तयार'), 'success');
+    }
+    hideModal();
+    const cur = document.querySelector('.nav-item.active').dataset.view;
+    loadView(cur);
+  } catch(e) {
+    toast(e.message, 'error');
+  }
+};
+
+window.deleteItem = async function(route, label, id) {
+  if (!confirm(t(`Delete this ${label}?`, `हा ${label} हटवायचा?`))) return;
+  try {
+    await api(`${API_BASE}/${route}/${id}`, { method: 'DELETE' });
+    toast(t('Deleted successfully', 'यशस्वीरित्या हटवले'), 'success');
+    const cur = document.querySelector('.nav-item.active').dataset.view;
+    loadView(cur);
+  } catch(e) {
+    toast(e.message, 'error');
+  }
+};
+
+async function renderSchemeApplications() {
+  const el = document.getElementById('viewSchemeApplications');
+  el.classList.remove('hidden');
+  el.innerHTML = '<div style="text-align:center;padding:40px"><div class="loader"></div></div>';
+  try {
+    const res = await api(`${API_BASE}/scheme-applications`);
+    const rows = res.data || [];
+    el.innerHTML = `
+      <div class="toolbar">
+        <input type="search" id="sa-search" placeholder="${t('Search by name/mobile/HH No','नाव/मोबाईल/घर क्रमांकाने शोधा')}">
+        <select id="sa-status">
+          <option value="">${t('All Statuses','सर्व स्थिती')}</option>
+          <option value="pending">${t('Pending','प्रलंबित')}</option>
+          <option value="approved">${t('Approved','मंजूर')}</option>
+          <option value="rejected">${t('Rejected','नाकारले')}</option>
+        </select>
+        <button class="btn btn-primary btn-sm" id="sa-filter">${t('Apply Filter','फिल्टर लागू करा')}</button>
+      </div>
+      <table class="data-table">
+        <thead><tr>
+          <th>${t('ID','ओळख')}</th>
+          <th>${t('Applicant','अर्जदार')}</th>
+          <th>${t('Scheme','योजना')}</th>
+          <th>${t('Mobile','मोबाईल')}</th>
+          <th>${t('Status','स्थिती')}</th>
+          <th>${t('Date','तारीख')}</th>
+          <th style="width:200px">${t('Actions','क्रिया')}</th>
+        </tr></thead>
+        <tbody>
+          ${rows.length ? rows.map(a => `
+            <tr>
+              <td>#${a.id}</td>
+              <td>${currentLang==='mr' ? a.applicant_name_mr : a.applicant_name_en}<br><small style="color:var(--text-gray)">${a.household_no||''}</small></td>
+              <td>${currentLang==='mr' ? a.scheme_title_mr : a.scheme_title_en}</td>
+              <td>${a.mobile||''}</td>
+              <td><span class="badge badge-${a.status||'info'}">${a.status||'pending'}</span></td>
+              <td>${new Date(a.created_at).toLocaleDateString()}</td>
+              <td class="actions-cell">
+                <button class="btn btn-sm btn-secondary" onclick="viewSchemeApp(${a.id})">${t('View','पहा')}</button>
+                <button class="btn btn-sm btn-success" onclick="updateSchemeAppStatus(${a.id},'approved')">${t('Approve','मंजूर')}</button>
+                <button class="btn btn-sm btn-danger" onclick="updateSchemeAppStatus(${a.id},'rejected')">${t('Reject','नाकारा')}</button>
+              </td>
+            </tr>
+          `).join('') : `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-light)">${t('No applications','अर्ज नाहीत')}</td></tr>`}
+        </tbody>
+      </table>
+    `;
+    const doFilter = () => {
+      const q = document.getElementById('sa-search').value;
+      const s = document.getElementById('sa-status').value;
+      api(`${API_BASE}/scheme-applications${q || s ? '?' : ''}${s ? `status=${s}&` : ''}${q ? `q=${encodeURIComponent(q)}` : ''}`).then(r => {
+        const rows = r.data || [];
+        el.querySelector('tbody').innerHTML = rows.length ? rows.map(a => `
+          <tr>
+            <td>#${a.id}</td>
+            <td>${currentLang==='mr' ? a.applicant_name_mr : a.applicant_name_en}<br><small style="color:var(--text-gray)">${a.household_no||''}</small></td>
+            <td>${currentLang==='mr' ? a.scheme_title_mr : a.scheme_title_en}</td>
+            <td>${a.mobile||''}</td>
+            <td><span class="badge badge-${a.status||'info'}">${a.status||'pending'}</span></td>
+            <td>${new Date(a.created_at).toLocaleDateString()}</td>
+            <td class="actions-cell">
+              <button class="btn btn-sm btn-secondary" onclick="viewSchemeApp(${a.id})">${t('View','पहा')}</button>
+              <button class="btn btn-sm btn-success" onclick="updateSchemeAppStatus(${a.id},'approved')">${t('Approve','मंजूर')}</button>
+              <button class="btn btn-sm btn-danger" onclick="updateSchemeAppStatus(${a.id},'rejected')">${t('Reject','नाकारा')}</button>
+            </td>
+          </tr>
+        `).join('') : `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-light)">${t('No results','परिणाम नाहीत')}</td></tr>`;
+      });
+    };
+    document.getElementById('sa-filter').onclick = doFilter;
+    document.getElementById('sa-search').onkeypress = (e) => { if (e.key === 'Enter') doFilter(); };
+    document.getElementById('sa-status').onchange = doFilter;
+  } catch(e) {
+    el.innerHTML = `<div style="color:var(--danger);text-align:center;padding:40px">${e.message}</div>`;
+  }
+}
+
+window.viewSchemeApp = async function(id) {
+  try {
+    const res = await api(`${API_BASE}/scheme-applications`);
+    const a = (res.data || []).find(r => r.id === id);
+    if (!a) return;
+    const fields = ['id','scheme_title_en','scheme_title_mr','applicant_name_en','applicant_name_mr','gender','dob','mobile','email','household_no','ward_no','caste','category','income_per_annum','address_en','address_mr','status','admin_note','created_at','updated_at'];
+    const body = `
+      <div class="detail-section">
+        <h3>${t('Application Details','अर्ज तपशील')}</h3>
+        ${fields.map(f => {
+          let v = a[f];
+          if (f.includes('_at') && v) v = new Date(v).toLocaleString();
+          if (f === 'status') v = `<span class="badge badge-${v||'info'}">${v||'pending'}</span>`;
+          return `<div class="detail-item"><span class="k">${f}</span><span class="v">${v||'-'}</span></div>`;
+        }).join('')}
+      </div>
+      <div class="form-group">
+        <label>${t('Admin Note','प्रशासक टीप')}</label>
+        <textarea id="sa-note" rows="2">${a.admin_note||''}</textarea>
+      </div>
+    `;
+    const footer = `
+      <button class="btn btn-secondary" onclick="hideModal()">${t('Close','बंद करा')}</button>
+      <button class="btn btn-danger" onclick="updateSchemeAppStatus(${id},'rejected')">${t('Reject','नाकारा')}</button>
+      <button class="btn btn-success" onclick="updateSchemeAppStatus(${id},'approved')">${t('Approve','मंजूर')}</button>
+    `;
+    showModal(t('Application #','अर्ज #') + id, body, footer);
+  } catch(e) { toast(e.message,'error'); }
+};
+
+window.updateSchemeAppStatus = async function(id, status) {
+  const noteEl = document.getElementById('sa-note');
+  const admin_note = noteEl ? noteEl.value : '';
+  try {
+    await api(`${API_BASE}/scheme-applications/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status, admin_note }),
+    });
+    toast(t(`Marked ${status}`, `${status} म्हणून चिन्हांकित`), 'success');
+    hideModal();
+    loadView('scheme-applications');
+  } catch(e) { toast(e.message,'error'); }
+};
+
+async function renderServiceApplications() {
+  const el = document.getElementById('viewServiceApplications');
+  el.classList.remove('hidden');
+  el.innerHTML = '<div style="text-align:center;padding:40px"><div class="loader"></div></div>';
+  try {
+    const res = await api(`${API_BASE}/service-applications`);
+    const rows = res.data || [];
+    el.innerHTML = `
+      <div class="toolbar">
+        <input type="search" id="sva-search" placeholder="${t('Search','शोधा')}">
+      </div>
+      <table class="data-table">
+        <thead><tr>
+          <th>${t('ID','ओळख')}</th>
+          <th>${t('Applicant','अर्जदार')}</th>
+          <th>${t('Type','प्रकार')}</th>
+          <th>${t('Mobile','मोबाईल')}</th>
+          <th>${t('Status','स्थिती')}</th>
+          <th>${t('Date','तारीख')}</th>
+          <th style="width:160px">${t('Actions','क्रिया')}</th>
+        </tr></thead>
+        <tbody>
+          ${rows.length ? rows.map(a => `
+            <tr>
+              <td>${a.id}</td>
+              <td>${currentLang==='mr' ? a.applicant_fullname_mr : a.applicant_fullname_en}</td>
+              <td>${a.service_type||''}</td>
+              <td>${a.mobile||''}</td>
+              <td><span class="badge badge-${['approved','submitted','pending'].includes(a.status)?'info':a.status==='rejected'?'rejected':'approved'}">${a.status||'-'}</span></td>
+              <td>${new Date(a.created_at).toLocaleDateString()}</td>
+              <td class="actions-cell">
+                <button class="btn btn-sm btn-secondary" onclick="viewServiceApp('${a.id}')">${t('View','पहा')}</button>
+              </td>
+            </tr>
+          `).join('') : `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-light)">${t('No applications','अर्ज नाहीत')}</td></tr>`}
+        </tbody>
+      </table>
+    `;
+    document.getElementById('sva-search').oninput = (e) => {
+      const q = e.target.value.toLowerCase();
+      el.querySelectorAll('tbody tr').forEach(tr => {
+        tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    };
+  } catch(e) {
+    el.innerHTML = `<div style="color:var(--danger);text-align:center;padding:40px">${e.message}</div>`;
+  }
+}
+
+window.viewServiceApp = async function(id) {
+  try {
+    const res = await api(`${API_BASE}/service-applications`);
+    const a = (res.data || []).find(r => r.id === id);
+    if (!a) return;
+    const body = `
+      <div class="detail-section">
+        <h3>${t('Applicant Info','अर्जदार माहिती')}</h3>
+        ${['id','service_type','applicant_fullname_en','applicant_fullname_mr','mobile','email','status','created_at'].map(f => {
+          let v = a[f]; if (f === 'created_at' && v) v = new Date(v).toLocaleString();
+          return `<div class="detail-item"><span class="k">${f}</span><span class="v">${v||'-'}</span></div>`;
+        }).join('')}
+      </div>
+      ${a.service_specific && Object.keys(a.service_specific).length ? `
+      <div class="detail-section">
+        <h3>${t('Service Specific','सेवा विशिष्ट')}</h3>
+        ${Object.entries(a.service_specific).map(([k,v]) => `<div class="detail-item"><span class="k">${k}</span><span class="v">${v||'-'}</span></div>`).join('')}
+      </div>` : ''}
+      ${a.status_history && a.status_history.length ? `
+      <div class="detail-section">
+        <h3>${t('Status History','स्थिती इतिहास')}</h3>
+        ${a.status_history.map(s => `<div class="detail-item"><span class="k">${s.status}</span><span class="v">${new Date(s.ts).toLocaleString()}${s.note?' • '+s.note:''}</span></div>`).join('')}
+      </div>` : ''}
+      <div class="form-group">
+        <label>${t('Update Status','स्थिती अपडेट करा')}</label>
+        <select id="sva-status">
+          <option value="">-- ${t('Select Status','स्थिती निवडा')} --</option>
+          <option>pending</option><option>submitted</option><option>verifying</option>
+          <option>approved</option><option>rejected</option><option>completed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>${t('Admin Note','प्रशासक टीप')}</label>
+        <textarea id="sva-note" rows="2">${a.admin_note||''}</textarea>
+      </div>
+    `;
+    const footer = `
+      <button class="btn btn-secondary" onclick="hideModal()">${t('Close','बंद करा')}</button>
+      <button class="btn btn-primary" onclick="updateServiceAppStatus('${a.id}')">${t('Save','जतन करा')}</button>
+    `;
+    showModal(t('Service Application','सेवा अर्ज') + ' #' + a.id, body, footer);
+  } catch(e) { toast(e.message,'error'); }
+};
+
+window.updateServiceAppStatus = async function(id) {
+  const s = document.getElementById('sva-status').value;
+  const note = document.getElementById('sva-note').value;
+  if (!s && !note) { toast(t('Select status or add note','स्थिती निवडा किंवा टीप जोडा'),'error'); return; }
+  try {
+    await api(`${API_BASE}/service-applications/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status: s || undefined, admin_note: note }),
+    });
+    toast(t('Updated','अपडेट'), 'success');
+    hideModal();
+    loadView('service-applications');
+  } catch(e) { toast(e.message,'error'); }
+};
+
+async function renderComplaints() {
+  const el = document.getElementById('viewComplaints');
+  el.classList.remove('hidden');
+  el.innerHTML = '<div style="text-align:center;padding:40px"><div class="loader"></div></div>';
+  try {
+    const res = await api(`${API_BASE}/complaints`);
+    const rows = res.data || [];
+    el.innerHTML = `
+      <div class="toolbar">
+        <input type="search" id="c-search" placeholder="${t('Search','शोधा')}">
+        <select id="c-status">
+          <option value="">${t('All Statuses','सर्व स्थिती')}</option>
+          <option>open</option><option>in-progress</option><option>resolved</option><option>closed</option>
+        </select>
+        <button class="btn btn-primary btn-sm" onclick="document.getElementById('c-search').value='';document.getElementById('c-status').value='';loadView('complaints')">${t('Reset','रीसेट')}</button>
+      </div>
+      <table class="data-table">
+        <thead><tr>
+          <th>${t('ID','ओळख')}</th>
+          <th>${t('Type','प्रकार')}</th>
+          <th>${t('Complaint','तक्रार')}</th>
+          <th>${t('Ward','वॉर्ड')}</th>
+          <th>${t('Status','स्थिती')}</th>
+          <th>${t('Date','तारीख')}</th>
+          <th style="width:160px">${t('Actions','क्रिया')}</th>
+        </tr></thead>
+        <tbody>
+          ${rows.length ? rows.map(c => `
+            <tr>
+              <td>${c.id}</td>
+              <td>${c.complaint_type||''}</td>
+              <td style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.description_en||c.description_mr||''}</td>
+              <td>${c.location_ward||'-'}</td>
+              <td><span class="badge badge-${c.status==='resolved'||c.status==='closed'?'approved':'pending'}">${c.status||'open'}</span></td>
+              <td>${new Date(c.created_at).toLocaleDateString()}</td>
+              <td class="actions-cell">
+                <button class="btn btn-sm btn-secondary" onclick="viewComplaint('${c.id}')">${t('View','पहा')}</button>
+              </td>
+            </tr>
+          `).join('') : `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-light)">${t('No complaints','तक्रारी नाहीत')}</td></tr>`}
+        </tbody>
+      </table>
+    `;
+    const filter = () => {
+      const q = document.getElementById('c-search').value.toLowerCase();
+      const s = document.getElementById('c-status').value;
+      el.querySelectorAll('tbody tr').forEach(tr => {
+        const txt = tr.textContent.toLowerCase();
+        const st = tr.querySelector('.badge').textContent.trim();
+        const ok1 = !q || txt.includes(q);
+        const ok2 = !s || st === s;
+        tr.style.display = ok1 && ok2 ? '' : 'none';
+      });
+    };
+    document.getElementById('c-search').oninput = filter;
+    document.getElementById('c-status').onchange = filter;
+  } catch(e) {
+    el.innerHTML = `<div style="color:var(--danger);text-align:center;padding:40px">${e.message}</div>`;
+  }
+}
+
+window.viewComplaint = async function(id) {
+  try {
+    const res = await api(`${API_BASE}/complaints`);
+    const c = (res.data || []).find(r => r.id === id);
+    if (!c) return;
+    const body = `
+      <div class="detail-section">
+        <h3>${t('Complaint','तक्रार')}</h3>
+        ${['id','complaint_type','complainant_name','mobile','location_ward','status','responsible_officer','created_at'].map(f => {
+          let v = c[f]; if (f === 'created_at' && v) v = new Date(v).toLocaleString();
+          return `<div class="detail-item"><span class="k">${f}</span><span class="v">${v||'-'}</span></div>`;
+        }).join('')}
+      </div>
+      <div class="detail-section">
+        <h3>${t('Description','वर्णन')}</h3>
+        <p style="font-size:0.9rem;padding:10px;background:var(--bg-light);border-radius:8px">${c.description_en||c.description_mr||'-'}</p>
+        ${c.admin_note ? `<p style="font-size:0.85rem;padding:10px;background:#fff7ed;border-radius:8px;margin-top:8px"><strong>${t('Admin Note:','प्रशासक टीप:')}</strong> ${c.admin_note}</p>` : ''}
+      </div>
+      ${c.replies && c.replies.length ? `
+      <div class="detail-section">
+        <h3>${t('Replies','उत्तरे')}</h3>
+        ${c.replies.map(r => `<div style="padding:8px;border-bottom:1px solid var(--border);font-size:0.85rem"><strong>${r.by}</strong> (${new Date(r.ts).toLocaleString()})<br>${r.text||''}${r.photo?`<br><img src="${r.photo}" style="max-width:200px;margin-top:6px;border-radius:6px">`:''}</div>`).join('')}
+      </div>` : ''}
+      <div class="form-row">
+        <div class="form-group">
+          <label>${t('Status','स्थिती')}</label>
+          <select id="c-status-f">
+            <option value="">--</option>
+            <option>open</option><option>in-progress</option><option>resolved</option><option>closed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>${t('Officer','अधिकारी')}</label>
+          <input type="text" id="c-officer" value="${c.responsible_officer||''}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>${t('Admin Reply','प्रशासक उत्तर')}</label>
+        <textarea id="c-reply" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label>${t('Admin Note','प्रशासक टीप')}</label>
+        <textarea id="c-note" rows="2">${c.admin_note||''}</textarea>
+      </div>
+    `;
+    const footer = `
+      <button class="btn btn-secondary" onclick="hideModal()">${t('Close','बंद करा')}</button>
+      <button class="btn btn-primary" onclick="updateComplaint('${c.id}')">${t('Save','जतन करा')}</button>
+    `;
+    showModal(t('Complaint #','तक्रार #') + c.id, body, footer);
+  } catch(e) { toast(e.message,'error'); }
+};
+
+window.updateComplaint = async function(id) {
+  const payload = {};
+  const s = document.getElementById('c-status-f').value;
+  const r = document.getElementById('c-reply').value;
+  const o = document.getElementById('c-officer').value;
+  const n = document.getElementById('c-note').value;
+  if (s) payload.status = s;
+  if (r) payload.admin_reply_text = r;
+  if (o) payload.responsible_officer = o;
+  if (n) payload.admin_note = n;
+  if (!Object.keys(payload).length) { toast(t('Nothing to update','अपडेट करण्यासारखे काही नाही'),'error'); return; }
+  try {
+    await api(`${API_BASE}/complaints/${id}`, { method: 'PATCH', body: JSON.stringify(payload) });
+    toast(t('Updated','अपडेट'), 'success');
+    hideModal();
+    loadView('complaints');
+  } catch(e) { toast(e.message,'error'); }
+};
+
+async function renderContactMessages() {
+  const el = document.getElementById('viewContactMessages');
+  el.classList.remove('hidden');
+  el.innerHTML = '<div style="text-align:center;padding:40px"><div class="loader"></div></div>';
+  try {
+    const res = await api(`${API_BASE}/contact-messages`);
+    const rows = res.data || [];
+    el.innerHTML = `
+      <table class="data-table">
+        <thead><tr>
+          <th>${t('ID','ओळख')}</th>
+          <th>${t('Name','नाव')}</th>
+          <th>${t('Email','ईमेल')}</th>
+          <th>${t('Subject','विषय')}</th>
+          <th>${t('Message','संदेश')}</th>
+          <th>${t('Status','स्थिती')}</th>
+          <th>${t('Date','तारीख')}</th>
+          <th style="width:160px">${t('Actions','क्रिया')}</th>
+        </tr></thead>
+        <tbody>
+          ${rows.length ? rows.map(m => `
+            <tr>
+              <td>${m.id}</td>
+              <td>${m.name||''}</td>
+              <td>${m.email||''}</td>
+              <td>${m.subject||''}</td>
+              <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.message||''}</td>
+              <td><span class="badge badge-${m.status==='replied'?'approved':'pending'}">${m.status||'new'}</span></td>
+              <td>${new Date(m.created_at).toLocaleDateString()}</td>
+              <td class="actions-cell">
+                <button class="btn btn-sm btn-secondary" onclick="replyMessage(${m.id})">${t('Reply','उत्तर द्या')}</button>
+              </td>
+            </tr>
+          `).join('') : `<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--text-light)">${t('No messages','संदेश नाहीत')}</td></tr>`}
+        </tbody>
+      </table>
+    `;
+  } catch(e) {
+    el.innerHTML = `<div style="color:var(--danger);text-align:center;padding:40px">${e.message}</div>`;
+  }
+}
+
+window.replyMessage = async function(id) {
+  try {
+    const res = await api(`${API_BASE}/contact-messages`);
+    const m = (res.data || []).find(r => r.id === id);
+    if (!m) return;
+    const body = `
+      <div class="detail-section">
+        <h3>${t('From','प्रेषक')}: ${m.name} &lt;${m.email}&gt;</h3>
+        <p style="font-size:0.9rem"><strong>${t('Subject:','विषय:')}</strong> ${m.subject||''}</p>
+        <p style="padding:12px;background:var(--bg-light);border-radius:8px;font-size:0.88rem;margin-top:8px">${m.message||''}</p>
+        ${m.admin_reply ? `<p style="padding:12px;background:#d1fae5;border-radius:8px;font-size:0.88rem;margin-top:8px"><strong>${t('Previous reply','मागील उत्तर')}:</strong><br>${m.admin_reply}</p>` : ''}
+      </div>
+      <div class="form-group">
+        <label>${t('Your Reply','तुमचे उत्तर')} *</label>
+        <textarea id="m-reply" rows="4" required></textarea>
+      </div>
+    `;
+    const footer = `
+      <button class="btn btn-secondary" onclick="hideModal()">${t('Close','बंद करा')}</button>
+      <button class="btn btn-primary" onclick="sendReply(${m.id})">${t('Send Reply','उत्तर पाठवा')}</button>
+    `;
+    showModal(t('Reply to Message','संदेशाला उत्तर द्या'), body, footer);
+  } catch(e) { toast(e.message,'error'); }
+};
+
+window.sendReply = async function(id) {
+  const r = document.getElementById('m-reply').value.trim();
+  if (!r) { toast(t('Reply required','उत्तर आवश्यक'),'error'); return; }
+  try {
+    await api(`${API_BASE}/contact-messages/${id}/reply`, {
+      method: 'PATCH',
+      body: JSON.stringify({ admin_reply: r }),
+    });
+    toast(t('Reply sent','उत्तर पाठवले'), 'success');
+    hideModal();
+    loadView('contact-messages');
+  } catch(e) { toast(e.message,'error'); }
+};
+
+(async function init() {
+  try {
+    await api('/api/admin/me');
+    showAdmin();
+  } catch(e) {
+    showLogin();
+  }
+})();
+</script>
+</body>
+</html>

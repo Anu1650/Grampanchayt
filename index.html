@@ -1,0 +1,4594 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Dumbarwadi Gram Panchayat - Smart Information System" data-mr="डुंबरवाडी ग्राम पंचायत - स्मार्ट माहिती प्रणाली">Dumbarwadi Gram Panchayat - Smart Information System</title>
+    
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #002868;
+    --primary-dark: #001a4a;
+    --primary-light: #0b3d91;
+    --accent: #004c8c;
+    --secondary: #c9a227;
+    --success: #138808;
+    --danger: #dc2626;
+    --warning: #f59e0b;
+    --bg-light: #f5f7fb;
+    --bg-white: #ffffff;
+    --text-dark: #0a0f1e;
+    --text-gray: #4a5568;
+    --text-light: #8a93a6;
+    --border: #d8e0f0;
+    --shadow: 0 4px 20px rgba(0, 40, 104, 0.08);
+    --shadow-lg: 0 10px 40px rgba(0, 40, 104, 0.15);
+    --gradient: linear-gradient(135deg, #002868 0%, #0b3d91 100%);
+    --gradient-gold: linear-gradient(135deg, #c9a227 0%, #f1c453 100%);
+    --gradient-tricolor: linear-gradient(90deg, #FF9933 0 33.33%, #FFFFFF 33.33% 66.66%, #138808 66.66% 100%);
+}
+
+body {
+    font-family: 'Poppins', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body.font-lg {
+    font-size: 1.08em;
+}
+
+body.font-xl {
+    font-size: 1.18em;
+}
+
+body.high-contrast {
+    --primary: #ffffff;
+    --primary-dark: #e2e8f0;
+    --primary-light: #cbd5e1;
+    --accent: #ffffff;
+    --secondary: #ffff00;
+    --success: #00ff00;
+    --danger: #ff0000;
+    --warning: #ffff00;
+    --bg-light: #000000;
+    --bg-white: #000000;
+    --text-dark: #ffffff;
+    --text-gray: #e2e8f0;
+    --text-light: #cbd5e1;
+    --border: #ffffff;
+    --gradient: linear-gradient(135deg, #000000 0%, #000000 100%);
+    --gradient-gold: linear-gradient(135deg, #ffff00 0%, #ffff00 100%);
+}
+
+body.grayscale {
+    filter: grayscale(1);
+}
+
+body.lang-mr {
+    font-family: 'Noto Sans Devanagari', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 450;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+.govt-tricolor {
+    width: 100%;
+    height: 1.5rem;
+    background: var(--gradient-tricolor);
+    position: relative;
+}
+
+.govt-tricolor::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='18' height='18'><circle cx='12' cy='12' r='10' fill='none' stroke='%23002868' stroke-width='1.2'/><circle cx='12' cy='12' r='1.5' fill='%23002868'/><g stroke='%23002868' stroke-width='1.2'><line x1='12' y1='2' x2='12' y2='4.5'/><line x1='12' y1='19.5' x2='12' y2='22'/><line x1='2' y1='12' x2='4.5' y2='12'/><line x1='19.5' y1='12' x2='22' y2='12'/><line x1='4.22' y1='4.22' x2='6' y2='6'/><line x1='18' y1='18' x2='19.78' y2='19.78'/><line x1='4.22' y1='19.78' x2='6' y2='18'/><line x1='18' y1='6' x2='19.78' y2='4.22'/><line x1='7.64' y1='3.2' x2='8.13' y2='5.3'/><line x1='15.87' y1='18.7' x2='16.36' y2='20.8'/><line x1='16.36' y1='3.2' x2='15.87' y2='5.3'/><line x1='8.13' y1='18.7' x2='7.64' y2='20.8'/><line x1='3.2' y1='7.64' x2='5.3' y2='8.13'/><line x1='18.7' y1='15.87' x2='20.8' y2='16.36'/><line x1='3.2' y1='16.36' x2='5.3' y2='15.87'/><line x1='18.7' y1='8.13' x2='20.8' y2='7.64'/></g><g stroke='%23002868' stroke-width='0.8'><line x1='12' y1='4.5' x2='12' y2='10.5'/><line x1='12' y1='13.5' x2='12' y2='19.5'/><line x1='4.5' y1='12' x2='10.5' y2='12'/><line x1='13.5' y1='12' x2='19.5' y2='12'/><line x1='6' y1='6' x2='10.15' y2='10.15'/><line x1='13.85' y1='13.85' x2='18' y2='18'/><line x1='6' y1='18' x2='10.15' y2='13.85'/><line x1='13.85' y1='10.15' x2='18' y2='6'/></g></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.govt-logo-strip {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+}
+
+.govt-logo-block {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+.govt-logo-block:nth-child(1) {
+    justify-content: flex-start;
+}
+
+.govt-logo-block:nth-child(2) {
+    justify-content: center;
+    text-align: center;
+}
+
+.govt-logo-block:nth-child(3) {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.govt-logo-block svg {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.govt-emblem-svg {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.govt-emblem-svg circle {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 2;
+}
+
+.govt-emblem-svg .emblem-inner {
+    fill: var(--primary);
+}
+
+.header {
+    background: var(--bg-white);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header.govt {
+    background: var(--primary);
+    color: #ffffff;
+    border-bottom: 3px solid var(--secondary);
+    box-shadow: 0 2px 20px rgba(0, 40, 104, 0.2);
+}
+
+.header.govt .navbar {
+    padding: 12px 0;
+}
+
+.header.govt .logo-text {
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+    background-clip: border-box;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.header.govt .nav-links a {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.header.govt .nav-links a::after {
+    background: var(--secondary);
+}
+
+.header.govt .nav-links a:hover {
+    color: var(--secondary);
+}
+
+.header.govt .hamburger span {
+    background: #ffffff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--text-gray);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--text-dark);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 40, 104, 0.08);
+    padding: 4px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+}
+
+.header.govt .lang-switcher {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.lang-btn {
+    padding: 7px 14px;
+    border: none;
+    background: transparent;
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.header.govt .lang-btn {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.lang-btn:hover {
+    color: var(--primary);
+}
+
+.header.govt .lang-btn:hover {
+    color: var(--secondary);
+}
+
+.lang-btn.active {
+    background: var(--gradient);
+    color: var(--bg-white);
+    box-shadow: 0 2px 10px rgba(0, 40, 104, 0.3);
+}
+
+.header.govt .lang-btn.active {
+    background: var(--secondary);
+    color: var(--primary-dark);
+    box-shadow: 0 2px 10px rgba(201, 162, 39, 0.4);
+}
+
+.a11y-toolbar {
+    position: relative;
+}
+
+.a11y-toolbar-trigger {
+    background: rgba(0, 40, 104, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.header.govt .a11y-toolbar-trigger {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.a11y-toolbar-trigger:hover {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.a11y-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: var(--shadow-lg);
+    width: 220px;
+    z-index: 1001;
+    display: none;
+}
+
+.a11y-panel.visible {
+    display: block;
+}
+
+.a11y-panel h5 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.a11y-font-group {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.a11y-font-btn {
+    flex: 1;
+    padding: 8px 4px;
+    border: 1px solid var(--border);
+    background: var(--bg-white);
+    color: var(--text-dark);
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.a11y-font-btn:nth-child(1) { font-size: 0.85rem; }
+.a11y-font-btn:nth-child(2) { font-size: 1rem; }
+.a11y-font-btn:nth-child(3) { font-size: 1.15rem; }
+
+.a11y-font-btn:hover,
+.a11y-font-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.a11y-toggle-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.a11y-toggle-btn {
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-white);
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-family: inherit;
+}
+
+.a11y-toggle-btn:hover {
+    background: var(--bg-light);
+    border-color: var(--primary);
+}
+
+.a11y-toggle-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.notice-ticker {
+    background: #f0f4ff;
+    color: var(--primary-dark);
+    padding: 12px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.ticker-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.ticker-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    background: var(--gradient);
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.ticker-content {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding-right: 30px;
+    font-size: 0.95rem;
+    animation: ticker 35s linear infinite;
+}
+
+.ticker-item + .ticker-item {
+    padding-left: 30px;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.breadcrumbs {
+    padding: 12px 0;
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+.breadcrumbs a {
+    color: var(--text-gray);
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary);
+}
+
+.breadcrumbs-separator {
+    color: var(--secondary);
+    margin: 0 8px;
+    font-weight: 600;
+}
+
+.hero {
+    position: relative;
+    padding: 100px 0 80px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(11, 61, 145, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(201, 162, 39, 0.06) 0%, transparent 50%),
+        var(--bg-light);
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.highlight {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--gradient);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 40, 104, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 12px 24px;
+    border-radius: 6px;
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.stat-card {
+    background: var(--bg-white);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--primary);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--secondary);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+.profile-section {
+    background: var(--bg-white);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.profile-category {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.profile-category:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-top-color: var(--secondary);
+}
+
+.profile-category.full-width {
+    grid-column: 1 / -1;
+    background: var(--gradient);
+    color: var(--bg-white);
+    border: none;
+    border-top: 3px solid var(--secondary);
+}
+
+.profile-category.full-width .profile-cat-title {
+    color: var(--bg-white);
+}
+
+.profile-cat-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.profile-stat {
+    background: var(--bg-white);
+    padding: 18px 12px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 40, 104, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.profile-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 40, 104, 0.12);
+}
+
+.p-stat-num {
+    font-size: 1.9rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.p-stat-num.male {
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.p-stat-num.female {
+    background: linear-gradient(135deg, #c2185b 0%, #ec407a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.p-stat-label {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.jj-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.jj-big {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.jj-label {
+    font-size: 1rem;
+    opacity: 0.95;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.jj-bar-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.jj-bar {
+    background: rgba(255, 255, 255, 0.2);
+    height: 42px;
+    border-radius: 21px;
+    overflow: hidden;
+}
+
+.jj-bar-fill {
+    height: 100%;
+    background: var(--gradient-gold);
+    border-radius: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+}
+
+.progress-wrap {
+    background: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progress-bar {
+    height: 12px;
+    background: var(--gradient);
+    border-radius: 8px;
+    transition: width 0.6s ease;
+}
+
+.schemes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.scheme-card {
+    background: var(--bg-white);
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.scheme-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--secondary);
+}
+
+.scheme-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.scheme-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.scheme-desc {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.scheme-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scheme-tag {
+    background: rgba(0, 40, 104, 0.08);
+    color: var(--primary-dark);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+}
+
+.btn-small {
+    padding: 10px 20px;
+    background: var(--gradient);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btn-small:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.notices-section {
+    background: var(--bg-white);
+}
+
+.notices-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.notice-item {
+    display: flex;
+    gap: 25px;
+    background: var(--bg-light);
+    padding: 25px 30px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--primary);
+    border-left: none;
+}
+
+.notice-item:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow);
+    border-top-color: var(--secondary);
+}
+
+.notice-date {
+    background: var(--gradient);
+    color: var(--bg-white);
+    min-width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 40, 104, 0.25);
+}
+
+.date-day {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+.notice-content {
+    flex: 1;
+}
+
+.notice-content h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.notice-content p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.notice-badge {
+    display: inline-block;
+    background: var(--gradient-gold);
+    color: var(--primary-dark);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--bg-white);
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--primary);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--secondary);
+}
+
+.service-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 20px;
+    background: rgba(0, 40, 104, 0.08);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    background: rgba(201, 162, 39, 0.15);
+    transform: scale(1.05);
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+.contacts-section {
+    background: var(--bg-white);
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.contact-card {
+    background: var(--bg-light);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--primary);
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-white);
+    border-top-color: var(--secondary);
+}
+
+.contact-avatar {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    background: var(--gradient);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.contact-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.contact-role {
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-bottom: 6px;
+    word-break: break-word;
+}
+
+.emergency-contacts {
+    background: var(--gradient);
+    border-radius: 16px;
+    padding: 45px;
+    color: var(--bg-white);
+    border-top: 4px solid var(--secondary);
+}
+
+.emergency-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.emergency-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.emergency-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    border-color: var(--secondary);
+}
+
+.emergency-icon {
+    font-size: 2.5rem;
+}
+
+.emergency-item strong {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.emergency-phone {
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+.badge-pending,
+.badge-under_review,
+.badge-approved,
+.badge-issued,
+.badge-rejected,
+.badge-resolved {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+}
+
+.badge-pending {
+    background: var(--warning);
+}
+
+.badge-under_review {
+    background: var(--accent);
+}
+
+.badge-approved {
+    background: var(--success);
+}
+
+.badge-issued {
+    background: var(--primary-dark);
+}
+
+.badge-rejected {
+    background: var(--danger);
+}
+
+.badge-resolved {
+    background: var(--success);
+}
+
+.toast-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+}
+
+.toast {
+    min-width: 280px;
+    padding: 14px 18px;
+    margin: 8px 0;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.toast.active {
+    transform: translateX(0);
+}
+
+.toast.success {
+    background: #f0fdf4;
+    border-left: 4px solid var(--success);
+    color: #166534;
+}
+
+.toast.warning {
+    background: #fffbeb;
+    border-left: 4px solid var(--warning);
+    color: #92400e;
+}
+
+.toast.error {
+    background: #fef2f2;
+    border-left: 4px solid var(--danger);
+    color: #991b1b;
+}
+
+.toast-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    background: var(--bg-white);
+    z-index: 2;
+}
+
+.timeline-step.active::before {
+    background: var(--primary);
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px rgba(0, 40, 104, 0.15);
+}
+
+.timeline-step.active::after {
+    content: '✓';
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.timeline-line {
+    position: absolute;
+    left: -23px;
+    width: 2px;
+    height: calc(100% + 10px);
+    background: var(--border);
+    top: 18px;
+}
+
+.timeline-time {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.timeline-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.timeline-desc {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.footer {
+    background: var(--primary-dark);
+    color: #e2e8f0;
+    padding: 48px 0 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.footer .logo-text {
+    -webkit-text-fill-color: #ffffff;
+    color: #ffffff;
+    background: none;
+    background-clip: border-box;
+}
+
+.footer-desc {
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 20px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #ffffff;
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 6px;
+    display: inline-block;
+}
+
+.footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary);
+    padding-left: 5px;
+}
+
+.footer-contact p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000f33;
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.footer-tag {
+    color: var(--secondary) !important;
+    font-weight: 700;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient);
+    color: var(--bg-white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 40, 104, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 40, 104, 0.5);
+}
+
+.certificate-view {
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 30mm;
+    background: var(--bg-white);
+    border: 2px solid var(--primary);
+}
+
+.certificate-letterhead {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--primary);
+    margin-bottom: 30px;
+}
+
+.certificate-tricolor {
+    width: 100%;
+    height: 8px;
+    background: var(--gradient-tricolor);
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+.certificate-gp-logo {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.certificate-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.certificate-subtitle {
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+}
+
+.certificate-lgd {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.certificate-body {
+    padding: 20px 0;
+}
+
+.certificate-body h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    text-decoration: underline;
+    text-decoration-color: var(--secondary);
+    text-underline-offset: 6px;
+}
+
+.certificate-line {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.certificate-line .label {
+    font-weight: 600;
+    color: var(--text-dark);
+    display: inline-block;
+    min-width: 160px;
+}
+
+.certificate-line .value {
+    color: var(--text-gray);
+    border-bottom: 1px dotted var(--border);
+    padding: 0 10px;
+}
+
+.certificate-signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--border);
+}
+
+.cert-sign-block {
+    text-align: center;
+}
+
+.cert-sign-line {
+    width: 160px;
+    border-top: 1px solid var(--text-dark);
+    margin: 0 auto 8px;
+}
+
+.cert-sign-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.cert-sign-role {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.certificate-seal {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+@media (max-width: 1024px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jj-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .schemes-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contacts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .emergency-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .govt-logo-strip {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+
+    .govt-logo-block,
+    .govt-logo-block:nth-child(1),
+    .govt-logo-block:nth-child(2),
+    .govt-logo-block:nth-child(3) {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .govt-logo-block svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .lang-switcher {
+        order: -1;
+        margin-left: auto;
+        margin-right: 12px;
+    }
+
+    .a11y-toolbar {
+        display: none;
+    }
+
+    .lang-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg-white);
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(-150%);
+        transition: transform 0.4s ease;
+    }
+
+    .header.govt .nav-links {
+        background: var(--primary-dark);
+    }
+
+    .header.govt .nav-links a {
+        color: #ffffff;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 60px 0 50px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-stats,
+    .schemes-grid,
+    .services-grid,
+    .contacts-grid,
+    .emergency-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .notice-item {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .notice-date {
+        min-width: unset;
+        width: 80px;
+    }
+
+    .emergency-contacts {
+        padding: 30px 20px;
+    }
+
+    .emergency-title {
+        font-size: 1.4rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .profile-category {
+        padding: 22px;
+    }
+
+    .profile-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .p-stat-num {
+        font-size: 1.5rem;
+    }
+
+    .p-stat-label {
+        font-size: 0.72rem;
+    }
+
+    .jj-big {
+        font-size: 2.5rem;
+    }
+
+    .jj-bar-fill {
+        font-size: 0.8rem;
+    }
+
+    .toast-container {
+        top: 60px;
+        right: 10px;
+        left: 10px;
+    }
+
+    .toast {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .breadcrumbs {
+        font-size: 13px;
+    }
+
+    .timeline {
+        padding-left: 32px;
+    }
+
+    .timeline-step::before {
+        left: -24px;
+    }
+
+    .timeline-step.active::after {
+        left: -24px;
+    }
+
+    .timeline-line {
+        left: -17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .scheme-card,
+    .service-card,
+    .contact-card {
+        padding: 25px 20px;
+    }
+
+    .scroll-top {
+        width: 44px;
+        height: 44px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.3rem;
+    }
+
+    .govt-logo-block {
+        font-size: 0.78rem;
+    }
+}
+
+@media print {
+    .header,
+    .footer,
+    .toast-container,
+    .nav,
+    .notice-ticker,
+    .a11y-toolbar,
+    .scroll-top,
+    .hamburger,
+    .nav-links,
+    .hero-buttons {
+        display: none !important;
+    }
+
+    body {
+        background: var(--bg-white);
+    }
+
+    .certificate-view {
+        border: none;
+        padding: 0;
+        max-width: 100%;
+        box-shadow: none;
+    }
+
+    .section-padding {
+        padding: 0;
+    }
+
+    .scheme-card,
+    .service-card,
+    .notice-item,
+    .profile-category,
+    .contact-card,
+    .stat-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border);
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--text-dark);
+    }
+}
+
+/* ===== Modal ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    border-top: 4px solid var(--accent-primary);
+    animation: modalIn 0.25s ease-out;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-gray);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    background: #f1f5f9;
+    color: var(--text-dark);
+}
+
+.modal-header {
+    padding: 1.75rem 1.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, #f0f7ff 0%, #fff 100%);
+}
+
+.modal-title {
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin: 0 0 0.3rem;
+    font-weight: 700;
+}
+
+.modal-subtitle {
+    margin: 0;
+    color: var(--accent-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.modal-body {
+    padding: 1.5rem 1.75rem 1.75rem;
+}
+
+/* ===== Form Styles ===== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 560px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border 0.2s, box-shadow 0.2s;
+    background: #fafbfc;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(0, 76, 140, 0.12);
+    background: #fff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+}
+
+.success-body {
+    text-align: center;
+    padding: 2rem 1.75rem;
+}
+
+.success-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.success-body h4 {
+    font-size: 1.4rem;
+    color: var(--success, #138808);
+    margin: 0 0 0.6rem;
+}
+
+.success-body > p {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+}
+
+.application-details {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.application-details p {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+}
+
+.badge-pending {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.loading-indicator {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-gray);
+    font-style: italic;
+}
+
+.loading-indicator::after {
+    content: '…';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: ''; }
+    40%      { content: '.'; }
+    60%      { content: '..'; }
+    80%, 100%{ content: '...'; }
+}
+
+/* ====== SKIP LINK ====== */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: white;
+    padding: 8px 16px;
+    z-index: 9999;
+    text-decoration: none;
+    border-radius: 0 0 6px 0;
+    font-weight: 500;
+}
+.skip-link:focus { top: 0; }
+
+/* ====== GOVT TRICOLOR STRIP ====== */
+.govt-tricolor {
+    height: 8px;
+    background: linear-gradient(90deg,
+        #FF9933 0%, #FF9933 33.33%,
+        #FFFFFF 33.33%, #FFFFFF 66.66%,
+        #138808 66.66%, #138808 100%);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* ====== GOVT LOGO STRIP ====== */
+.govt-logo-strip {
+    background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #fcd34d;
+}
+.govt-logo-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+.govt-emblem-svg {
+    width: 54px;
+    height: 54px;
+    background: white;
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.emblem-inner { fill: #c9a227; }
+.lgd-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* ====== BREADCRUMBS ====== */
+.breadcrumbs {
+    background: #f9fafb;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    padding: 10px 0;
+    color: var(--text-gray);
+}
+.breadcrumbs .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+.breadcrumbs a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs .crumb-sep::before { content: '/'; margin: 0 4px; color: var(--text-light); }
+
+/* ====== HEADER GOVT ====== */
+.header.govt { top: 8px; }
+
+/* ====== SEARCH ====== */
+.search-wrap {
+    position: relative;
+}
+.search-wrap input {
+    padding: 8px 12px 8px 32px;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    background: white url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>") no-repeat 10px center;
+    background-size: 16px;
+    width: 220px;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+.search-wrap input:focus { outline: none; border-color: var(--primary); width: 260px; transition: width 0.2s; }
+.search-results {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    z-index: 100;
+    max-height: 360px;
+    overflow-y: auto;
+    display: none;
+    min-width: 280px;
+}
+.search-results.visible { display: block; }
+.search-group-label {
+    padding: 6px 14px;
+    background: #f1f5f9;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.search-result-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.search-result-item:hover { background: #f8fafc; }
+.search-result-item:last-child { border-bottom: none; }
+.search-empty {
+    padding: 18px 14px;
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 0.88rem;
+}
+.result-title { font-weight: 500; font-size: 0.9rem; color: var(--text-dark); }
+.result-desc { font-size: 0.78rem; color: var(--text-gray); margin-top: 2px; }
+
+/* ====== A11Y TOOLBAR ====== */
+.a11y-toolbar { position: relative; }
+.a11y-toolbar-trigger {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    width: 36px; height: 36px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+}
+.a11y-toolbar-trigger:hover { border-color: var(--primary); }
+.a11y-panel {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: white;
+    padding: 14px 16px;
+    border-radius: 12px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.14);
+    z-index: 100;
+    min-width: 220px;
+    display: none;
+}
+.a11y-panel.visible { display: block; }
+.a11y-panel h5 {
+    font-size: 0.82rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    margin-top: 12px;
+}
+.a11y-panel h5:first-child { margin-top: 0; }
+.a11y-font-group {
+    display: flex; gap: 6px;
+}
+.a11y-font-group button {
+    flex: 1;
+    padding: 6px 0;
+    border: 1.5px solid var(--border);
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+}
+.a11y-font-group button:first-child { font-size: 0.78rem; }
+.a11y-font-group button:nth-child(2) { font-size: 0.95rem; }
+.a11y-font-group button:nth-child(3) { font-size: 1.12rem; }
+.a11y-font-group button:last-child { font-size: 1.3rem; }
+.a11y-font-group button.active { background: var(--primary); color: white; border-color: var(--primary); }
+.a11y-theme-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.a11y-theme-row button {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    border: 1.5px solid var(--border);
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+}
+.a11y-theme-row button.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* ====== ACCOUNT MENU ====== */
+.account-menu-wrap { position: relative; }
+.account-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.account-btn:hover { opacity: 0.92; }
+.account-menu-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.14);
+    z-index: 100;
+    min-width: 200px;
+    overflow: hidden;
+}
+.account-menu-dropdown hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 6px 0;
+}
+.account-menu-dropdown a {
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.88rem;
+}
+.account-menu-dropdown a:hover { background: #f8fafc; color: var(--primary); }
+
+/* ====== ABOUT SECTION ====== */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
+}
+.about-card {
+    background: white;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary);
+}
+.about-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+.about-card h3 {
+    color: var(--primary);
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1f5f9;
+}
+.about-card p {
+    font-size: 0.88rem;
+    padding: 4px 0;
+    color: var(--text-gray);
+}
+.about-card p strong { color: var(--text-dark); }
+.about-body {
+    background: linear-gradient(135deg, #f0f9ff, #ecfeff);
+    padding: 24px;
+    border-radius: 14px;
+    border-left: 4px solid var(--accent);
+}
+.about-body p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--text-gray);
+}
+
+/* ====== PROJECTS ====== */
+.projects-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.projects-summary .stat-card {
+    padding: 16px;
+    text-align: center;
+}
+.projects-summary .stat-card .value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+.projects-summary .stat-card .label {
+    font-size: 0.78rem;
+    color: var(--text-gray);
+    margin-top: 4px;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 18px;
+}
+.project-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(0,40,104,0.14);
+}
+.project-card.status-completed { border-left-color: var(--success); }
+.project-card.status-inprogress { border-left-color: var(--warning); }
+.project-card.status-planned { border-left-color: var(--text-light); }
+.project-card.status-halted { border-left-color: #dc2626; }
+.project-card h4 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0;
+    font-size: 0.78rem;
+    color: var(--text-gray);
+}
+.project-meta span {
+    background: #f1f5f9;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+.progress-bar {
+    background: #e2e8f0;
+    height: 10px;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 999px;
+    transition: width 0.6s;
+}
+.project-funds {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--text-gray);
+    margin-top: 6px;
+}
+.project-funds strong { color: var(--text-dark); }
+
+/* ====== GRAM SABHA ====== */
+.gs-upcoming, .gs-past {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+}
+.gs-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+}
+.gs-date-col {
+    background: var(--gradient);
+    color: white;
+    padding: 18px 14px;
+    min-width: 90px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.gs-day { font-size: 2rem; font-weight: 700; line-height: 1; }
+.gs-month { font-size: 0.82rem; opacity: 0.9; margin-top: 4px; }
+.gs-year { font-size: 0.75rem; opacity: 0.7; margin-top: 2px; }
+.gs-body {
+    flex: 1;
+    padding: 16px 18px;
+}
+.gs-body h4 {
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+.gs-body .meta {
+    font-size: 0.78rem;
+    color: var(--text-gray);
+    margin: 4px 0;
+}
+.gs-body .gs-btn-row {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.gs-body .gs-btn-row a,
+.gs-body .gs-btn-row button {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+    background: #f1f5f9;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+.gs-body .gs-btn-row .primary-btn {
+    background: var(--gradient);
+    color: white;
+}
+
+/* ====== APPLY STEPPER ====== */
+.apply-stepper {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.stepper-step {
+    background: #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+.stepper-step.active {
+    background: var(--primary);
+    color: white;
+}
+.stepper-step.done {
+    background: var(--success);
+    color: white;
+}
+.service-form {
+    background: white;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+/* ====== DASHBOARD ====== */
+.stat-grid .stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.stat-grid .stat-card .v {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+.stat-grid .stat-card .l {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    margin-top: 4px;
+}
+.dashboard-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.dashboard-item:last-child { border-bottom: none; }
+.dashboard-item .d-info { flex: 1; min-width: 0; }
+.dashboard-item .d-info strong { display: block; font-size: 0.88rem; }
+.dashboard-item .d-info small { font-size: 0.76rem; color: var(--text-gray); }
+
+/* ====== TOASTS ====== */
+.toast-container {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+    max-width: 380px;
+}
+.toast {
+    background: white;
+    border-left: 4px solid var(--success);
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.18);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateX(120%);
+    transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+}
+.toast.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.toast.success { border-left-color: var(--success); }
+.toast.error { border-left-color: var(--danger); }
+.toast.warning { border-left-color: var(--warning); }
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+    .govt-logo-strip { padding: 10px 14px; }
+    .govt-logo-block { font-size: 0.78rem; }
+    .govt-emblem-svg { width: 42px; height: 42px; }
+    .search-wrap input { width: 150px; }
+    .search-wrap input:focus { width: 180px; }
+    .header.govt { top: auto; }
+}
+@media (max-width: 640px) {
+    .govt-logo-block > div { display: none; }
+    .govt-logo-block:first-child > div,
+    .govt-logo-block:last-child > div { display: block; }
+    .govt-logo-block:nth-child(2) { display: none; }
+    .toast-container { top: 12px; right: 12px; left: 12px; max-width: none; }
+    .navbar { flex-direction: column; align-items: stretch; gap: 10px; }
+}
+
+.btn-block { width: 100%; display: block; text-align: center; }
+
+</style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main" class="skip-link" data-en="Skip to main content" data-mr="मुख्य सामग्रीकडे जा">Skip to main content</a>
+
+    <div class="govt-tricolor" aria-hidden="true"></div>
+
+    <div class="govt-logo-strip">
+        <div class="govt-logo-block">
+            <svg class="govt-emblem-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="46"/>
+                <circle cx="50" cy="50" r="38" class="emblem-inner" opacity="0.08"/>
+                <text x="50" y="44" text-anchor="middle" font-size="18" fill="#002868" font-weight="700">भारत</text>
+                <text x="50" y="66" text-anchor="middle" font-size="12" fill="#002868" font-weight="600">GOI</text>
+            </svg>
+            <div>
+                <div data-en="Government of India" data-mr="भारत सरकार">भारत सरकार</div>
+                <div style="font-size:0.75rem;color:var(--text-gray);font-weight:500;">Government of India</div>
+            </div>
+        </div>
+        <div class="govt-logo-block">
+            <svg class="govt-emblem-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="46"/>
+                <circle cx="50" cy="50" r="38" class="emblem-inner" opacity="0.08"/>
+                <text x="50" y="44" text-anchor="middle" font-size="16" fill="#FF9933" font-weight="700">महा</text>
+                <text x="50" y="66" text-anchor="middle" font-size="11" fill="#138808" font-weight="600">राष्ट्र</text>
+            </svg>
+            <div>
+                <div data-en="Government of Maharashtra" data-mr="महाराष्ट्र राज्य">महाराष्ट्र राज्य</div>
+                <div style="font-size:0.75rem;color:var(--text-gray);font-weight:500;">Government of Maharashtra</div>
+            </div>
+        </div>
+        <div class="govt-logo-block">
+            <svg class="govt-emblem-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="46"/>
+                <circle cx="50" cy="50" r="38" class="emblem-inner" opacity="0.08"/>
+                <text x="50" y="58" text-anchor="middle" font-size="28" fill="#002868" font-weight="700">🏛️</text>
+            </svg>
+            <div>
+                <div data-en="Dumbarwadi Gram Panchayat" data-mr="डुंबरवाडी ग्राम पंचायत">डुंबरवाडी ग्राम पंचायत</div>
+                <div style="font-size:0.75rem;color:var(--text-gray);font-weight:500;">Dumbarwadi Gram Panchayat</div>
+                <span class="lgd-badge">LGD: 185937</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header govt">
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <div class="logo">
+                    <span class="logo-icon">🏛️</span>
+                    <span class="logo-text" data-en="Dumbarwadi Panchayat" data-mr="डुंबरवाडी पंचायत">Dumbarwadi Panchayat</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" data-en="Home" data-mr="मुख्यपृष्ठ">Home</a></li>
+                    <li><a href="#about" data-en="About" data-mr="बद्दल">About</a></li>
+                    <li><a href="#profile" data-en="Profile" data-mr="प्रोफाइल">Profile</a></li>
+                    <li><a href="#projects" data-en="Projects" data-mr="प्रकल्प">Projects</a></li>
+                    <li><a href="#gramsabha" data-en="Gram Sabha" data-mr="ग्रामसभा">Gram Sabha</a></li>
+                    <li><a href="#schemes" data-en="Schemes" data-mr="योजना">Schemes</a></li>
+                    <li><a href="#services" data-en="Services" data-mr="सुविधा">Services</a></li>
+                    <li><a href="#service-apply" data-en="Apply" data-mr="अर्ज">Apply</a></li>
+                    <li><a href="#complaint" data-en="Complaints" data-mr="तक्रारी">Complaints</a></li>
+                    <li><a href="#track" data-en="Track" data-mr="ट्रॅक">Track</a></li>
+                    <li><a href="#notices" data-en="Notices" data-mr="सूचना">Notices</a></li>
+                    <li><a href="#contact-form" data-en="Contact" data-mr="संपर्क">Contact</a></li>
+                </ul>
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                    <div class="search-wrap">
+                        <input type="search" id="globalSearch" placeholder="Search..." aria-label="Search" data-en-placeholder="Search schemes, notices..." data-mr-placeholder="योजना, सूचना शोधा...">
+                        <div id="searchResults" class="search-results" role="listbox" aria-label="Search results"></div>
+                    </div>
+                    <div class="a11y-toolbar">
+                        <button class="a11y-toolbar-trigger" id="a11yBtn" aria-label="Accessibility options" aria-haspopup="true" aria-expanded="false">⚙️</button>
+                    </div>
+                    <div class="account-menu-wrap">
+                        <button id="accountBtn" class="account-btn" aria-haspopup="true" aria-expanded="false">👤 <span id="accountLabel" data-en="Login" data-mr="लॉगिन">Login/Register</span> ▾</button>
+                        <div id="accountMenu" class="account-menu-dropdown" hidden role="menu">
+                            <a href="#" id="openRegister" role="menuitem" data-en="Register Citizen" data-mr="नागरिक नोंदणी">Register Citizen</a>
+                            <a href="#" id="openLogin" role="menuitem" data-en="Citizen Login" data-mr="नागरिक लॉगिन">Citizen Login</a>
+                            <hr>
+                            <a href="/admin" role="menuitem" data-en="Admin Login" data-mr="प्रशासक लॉगिन">🔐 Admin Login</a>
+                            <hr>
+                            <a href="#citizen-dashboard" id="dashLink" hidden role="menuitem" data-en="My Dashboard" data-mr="माझे डॅशबोर्ड">My Dashboard</a>
+                            <a href="#" id="logoutLink" hidden role="menuitem" data-en="Logout" data-mr="बाहेर पडा">Logout</a>
+                        </div>
+                    </div>
+                    <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language switcher">
+                        <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+                        <button class="lang-btn" data-lang="mr" aria-pressed="false">मराठी</button>
+                    </div>
+                    <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="container" id="breadcrumbs-nav">
+            <a href="#home" data-en="🏠 Home" data-mr="🏠 मुख्यपृष्ठ">🏠 Home</a>
+        </div>
+    </div>
+
+    <main id="main">
+
+    <div class="notice-ticker">
+        <div class="ticker-container">
+            <span class="ticker-label" data-en="📢 Announcement:" data-mr="📢 जाहिरात:">📢 Announcement:</span>
+            <div class="ticker-content" id="tickerContent">
+                <span class="ticker-item" data-en="Dumbarwadi Gram Panchayat Meeting scheduled on 28th September 2026 at 10:00 AM" data-mr="डुंबरवाडी ग्राम पंचायत सभा 28 सप्टेंबर 2026 रोजी सकाळी 10:00 वाजता">Dumbarwadi Gram Panchayat Meeting scheduled on 28th September 2026 at 10:00 AM</span>
+                <span class="ticker-item">•</span>
+                <span class="ticker-item" data-en="Water Supply: 7:00 AM - 9:00 AM & 5:00 PM - 7:00 PM daily" data-mr="पाणी पुरवठा: सकाळी 7:00 - 9:00 आणि संध्याकाळी 5:00 - 7:00">Water Supply: 7:00 AM - 9:00 AM & 5:00 PM - 7:00 PM daily</span>
+                <span class="ticker-item">•</span>
+                <span class="ticker-item" data-en="New PM Awas Yojana applications open - Contact Sarpanch Shital Gore" data-mr="नवीन पीएम आवास योजना अर्ज सुरू - संपर्क: सरपंच शितल गोरे">New PM Awas Yojana applications open - Contact Sarpanch Shital Gore</span>
+                <span class="ticker-item">•</span>
+                <span class="ticker-item" data-en="Free Health Check-up Camp at Primary Health Centre - 2 Anganwadi Centers Active" data-mr="प्राथमिक आरोग्य केंद्रात मोफत आरोग्य तपासणी शिबीर - 2 अंगणवाडी केंद्रे सक्रिय">Free Health Check-up Camp at Primary Health Centre - 2 Anganwadi Centers Active</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title"><span data-en="Dumbarwadi Gram Panchayat" data-mr="डुंबरवाडी ग्राम पंचायत">Dumbarwadi Gram Panchayat</span><br><span class="highlight" data-en="Smart Information System" data-mr="स्मार्ट माहिती प्रणाली">Smart Information System</span></h1>
+                <p class="hero-subtitle" data-en="Smart Digital Information System — Village: Dumbarwadi | GP LGD Code: 185937 | Village LGD Code: 555263 | Lat: 19.25° N, Long: 74.01° E" data-mr="स्मार्ट डिजिटल माहिती प्रणाली — गाव: डुंबरवाडी | GP LGD कोड: 185937 | गाव LGD कोड: 555263 | अक्षांश: 19.25° N, रेखांश: 74.01° E">Smart Digital Information System — Village: Dumbarwadi | GP LGD Code: 185937 | Village LGD Code: 555263 | Lat: 19.25° N, Long: 74.01° E</p>
+                <div class="hero-buttons">
+                    <a href="#profile" class="btn btn-primary" data-en="Village Profile" data-mr="गाव प्रोफाइल">Village Profile</a>
+                    <a href="#schemes" class="btn btn-secondary" data-en="Explore Schemes" data-mr="योजना पहा">Explore Schemes</a>
+                </div>
+            </div>
+            <div class="hero-stats" id="heroStats">
+                <div class="stat-card">
+                    <div class="stat-number">1430</div>
+                    <div class="stat-label" data-en="Total Population" data-mr="एकूण जनसंख्या">Total Population</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">36.11</div>
+                    <div class="stat-label" data-en="Area (sq km)" data-mr="क्षेत्रफळ (चौरस किमी)">Area (sq km)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">321</div>
+                    <div class="stat-label" data-en="Tap Water HHs" data-mr="नळ पाणी घरे">Tap Water HHs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label" data-en="SHG Groups" data-mr="स्वयंसहाय्य गट">SHG Groups</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="profile-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Demographic Profile" data-mr="जनसांख्यिकी प्रोफाइल">जनसांख्यिकी प्रोफाइल — Demographic Profile</h2>
+                <p class="section-subtitle" data-en="Complete village profile of Dumbarwadi — Updated 27 days ago via Meri Panchayat" data-mr="डुंबरवाडी गावाचे संपूर्ण प्रोफाइल — मेरी पंचायत द्वारे 27 दिवसांपूर्वी अद्ययावत">Complete village profile of Dumbarwadi (डुंबरवाडी) — Updated 27 days ago via Meri Panchayat</p>
+            </div>
+
+            <div class="profile-grid" id="profileGrid"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="About Dumbarwadi Village" data-mr="डुंबरवाडी गावाबद्दल">About Dumbarwadi Village — डुंबरवाडी गावाबद्दल</h2>
+                <p class="section-subtitle" data-en="Learn about the history, geography, and administration of our village" data-mr="आमच्या गावाचा इतिहास, भूगोल आणि प्रशासनाबद्दल जाणून घ्या">Learn about the history, geography, and administration of our village</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">📍</div>
+                    <h3 data-en="Location" data-mr="स्थान">Location</h3>
+                    <p><strong data-en="District:" data-mr="जिल्हा:">District:</strong> Sangli, Maharashtra</p>
+                    <p><strong data-en="Block / Taluka:" data-mr="ब्लॉक / तालुका:">Block / Taluka:</strong> Vita</p>
+                    <p><strong data-en="State LGD:" data-mr="राज्य LGD:">State LGD:</strong> 13 (Maharashtra)</p>
+                    <p><strong data-en="District LGD:" data-mr="जिल्हा LGD:">District LGD:</strong> 532 (Sangli)</p>
+                    <p><strong data-en="Gram Panchayat LGD:" data-mr="ग्राम पंचायत LGD:">Gram Panchayat LGD:</strong> 185937</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📊</div>
+                    <h3 data-en="Demographics" data-mr="जनसांख्यिकी">Demographics (Census 2011)</h3>
+                    <p><strong data-en="Total Population:" data-mr="एकूण जनसंख्या:">Total Population:</strong> <span id="aboutPop">1,430</span> (717 ♂ / 713 ♀)</p>
+                    <p><strong data-en="Literacy Rate:" data-mr="साक्षरता दर:">Literacy Rate:</strong> 71.4%</p>
+                    <p><strong data-en="Sex Ratio:" data-mr="लिंग गुणोत्तर:">Sex Ratio:</strong> 994 females / 1000 males</p>
+                    <p><strong data-en="Scheduled Castes:" data-mr="अनुसूचित जाती:">Scheduled Castes (SC):</strong> 12.58%</p>
+                    <p><strong data-en="Main Working Population:" data-mr="मुख्य कार्यरत जनसंख्या:">Main Working Population:</strong> 38.81%</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🏘️</div>
+                    <h3 data-en="Assets & Amenities" data-mr="संपत्ती व सुविधा">Assets & Amenities</h3>
+                    <p>✅ <span data-en="2 Primary Schools" data-mr="2 प्राथमिक शाळा">2 Primary Schools</span> + 2 Anganwadi</p>
+                    <p>✅ <span data-en="3 Drinking Water Sources" data-mr="3 पिण्याच्या पाण्याचे स्त्रोत">3 Drinking Water Sources (Handpump + Tap)</span></p>
+                    <p>✅ <span data-en="Road Connectivity" data-mr="रस्ता जोडणी">Road Connectivity — Pucca Roads</span></p>
+                    <p>✅ <span data-en="Electricity" data-mr="वीज पुरवठा">Electricity — 100% HH Electrified</span></p>
+                    <p>✅ <span data-en="JJM Tap Connections" data-mr="JJM नळ जोडणी">JJM Tap Water to 321 HHs</span></p>
+                </div>
+            </div>
+            <div class="about-body">
+                <p data-en="Dumbarwadi is a village located in the Vita Taluka of Sangli district in Maharashtra, India. It is administered by a democratically elected Gram Panchayat (village council) under the 73rd Constitutional Amendment. The village economy is primarily agrarian, with sugarcane, soybean, and groundnut being major crops. The Panchayat operates under the Maharashtra Gram Panchayat Act (1958) and provides essential civic services including birth/death registration, sanitation, drinking water, street lighting, and public works." data-mr="डुंबरवाडी हे महाराष्ट्रातील सांगली जिल्ह्यातील विटा तालुक्यातील एक गाव आहे. याचे प्रशासन ७३व्या घटनादुरुस्तीअंतर्गत लोकशाही पद्धतीने निवडणूक झालेल्या ग्राम पंचायताद्वारे केले जाते. गावाची अर्थव्यवस्था प्रामुख्याने कृषीवर अवलंबून आहे, ज्यात उस, सोयाबीन आणि भुईमुखी ही मुख्य पिके आहेत. पंचायत महाराष्ट्र ग्राम पंचायत कायदा (१९५८) अंतर्गत काम करते आणि जन्म/मृत्यू नोंदणी, स्वच्छता, पिण्याचे पाणी, गल्लीतील दिवे आणि सार्वजनिक बांधकाम यासारख्या आवश्यक नागरी सेवा प्रदान करते.">
+                Dumbarwadi is a village located in the Vita Taluka of Sangli district in Maharashtra, India. It is administered by a democratically elected Gram Panchayat (village council) under the 73rd Constitutional Amendment. The village economy is primarily agrarian, with sugarcane, soybean, and groundnut being major crops. The Panchayat operates under the Maharashtra Gram Panchayat Act (1958) and provides essential civic services including birth/death registration, sanitation, drinking water, street lighting, and public works.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Ongoing & Completed Projects" data-mr="चालू व पूर्ण झालेले प्रकल्प">🏗️ Projects — प्रकल्प</h2>
+                <p class="section-subtitle" data-en="Infrastructure, road, water and sanitation projects by Dumbarwadi GP" data-mr="डुंबरवाडी जीपद्वारे पायाभूत सुविधा, रस्ता, पाणी आणि स्वच्छता प्रकल्प">Track all infrastructure and development projects in the village</p>
+            </div>
+            <div class="projects-summary" id="projectsSummary"></div>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <section id="gramsabha" class="gramsabha-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Gram Sabha Meetings" data-mr="ग्रामसभा बैठका">🏛️ Gram Sabha — ग्रामसभा</h2>
+                <p class="section-subtitle" data-en="Meeting schedule, agenda, minutes and attendance of Gram Sabha" data-mr="ग्रामसभेच्या बैठकींचे वेळापत्रक, अजेंडा, मिनिटे आणि उपस्थिती">Attend upcoming Gram Sabha and review past meeting minutes</p>
+            </div>
+            <div class="gs-upcoming">
+                <h3 style="margin-bottom:16px;color:var(--primary)">📅 <span data-en="Upcoming Meetings" data-mr="आगामी बैठका">Upcoming Meetings</span></h3>
+                <div id="gsUpcoming"></div>
+            </div>
+            <div style="height:28px"></div>
+            <div class="gs-past">
+                <h3 style="margin-bottom:16px;color:var(--primary)">📜 <span data-en="Past Meetings & Minutes" data-mr="मागील बैठका व मिनिटे">Past Meetings & Minutes</span></h3>
+                <div id="gsPast"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schemes" class="schemes-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Government Schemes" data-mr="सरकारी योजना">सरकारी योजना — Government Schemes</h2>
+                <p class="section-subtitle" data-en="Discover and apply for government welfare schemes available for Dumbarwadi villagers" data-mr="डुंबरवाडी ग्रामस्थांसाठी उपलब्ध सरकारी कल्याण योजना शोधा आणि अर्ज करा">Discover and apply for government welfare schemes available for Dumbarwadi villagers</p>
+            </div>
+            <div class="schemes-grid" id="schemesGrid"></div>
+        </div>
+    </section>
+
+    <section id="notices" class="notices-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Notices & Announcements" data-mr="सूचना व जाहिराती">सूचना व जाहिराती — Notices & Announcements</h2>
+                <p class="section-subtitle" data-en="Stay updated with the latest news and notices from Dumbarwadi Gram Panchayat" data-mr="डुंबरवाडी ग्राम पंचायतच्या ताज्या बातम्या व सूचनांसह अद्ययावत रहा">Stay updated with the latest news and notices from Dumbarwadi Gram Panchayat</p>
+            </div>
+            <div class="notices-list" id="noticesList"></div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Village Services" data-mr="गावाच्या सुविधा">गावाच्या सुविधा — Village Services</h2>
+                <p class="section-subtitle" data-en="Essential services provided by Dumbarwadi Gram Panchayat for 1430 villagers" data-mr="1430 ग्रामस्थांसाठी डुंबरवाडी ग्राम पंचायतद्वारे प्रदान केलेल्या आवश्यक सेवा">Essential services provided by Dumbarwadi Gram Panchayat for 1430 villagers</p>
+            </div>
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Important Contacts" data-mr="महत्वाचे संपर्क">संपर्क — Important Contacts</h2>
+                <p class="section-subtitle" data-en="Dumbarwadi Panchayat officials & emergency services — GP LGD: 185937" data-mr="डुंबरवाडी पंचायत अधिकारी व आपत्कालीन सेवा — GP LGD: 185937">Dumbarwadi Panchayat officials & emergency services — GP LGD: 185937</p>
+            </div>
+            <div class="contacts-grid" id="contactsGrid"></div>
+
+            <div class="emergency-contacts">
+                <h3 class="emergency-title" data-en="🚨 Emergency Services" data-mr="🚨 आपत्कालीन सेवा">🚨 आपत्कालीन सेवा — Emergency Services</h3>
+                <div class="emergency-grid" id="emergencyGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-apply" class="services-section section-padding apply-section" style="background:linear-gradient(135deg,#eff6ff,#ffffff)">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Apply for Certificates & Services" data-mr="प्रमाणपत्रे व सेवांसाठी अर्ज करा">📝 Apply Online — ऑनलाइन अर्ज</h2>
+                <p class="section-subtitle" data-en="Birth, Death, Residence, Income certificates, Water connection & Property Tax" data-mr="जन्म, मृत्यू, निवास, उत्पन्न प्रमाणपत्रे, पाणी कनेक्शन व मालमत्ता कर">Apply for 6 essential Gram Panchayat services online. Submissions tracked with unique Application ID.</p>
+            </div>
+            <div class="services-grid" id="applyGrid">
+                <a class="service-card" href="#apply/birth" data-svc="birth">
+                    <div class="service-icon">👶</div>
+                    <h3 data-en="Birth Certificate" data-mr="जन्म प्रमाणपत्र">Birth Certificate</h3>
+                    <p data-en="Register newborn and get official birth certificate" data-mr="नवजतची नोंदणी करून अधिकृत जन्म प्रमाणपत्र मिळवा">Register newborn and get official birth certificate</p>
+                    <div class="service-link" data-en="Apply Now →" data-mr="आताच अर्ज करा →">Apply Now →</div>
+                </a>
+                <a class="service-card" href="#apply/death" data-svc="death">
+                    <div class="service-icon">🕊️</div>
+                    <h3 data-en="Death Certificate" data-mr="मृत्यू प्रमाणपत्र">Death Certificate</h3>
+                    <p data-en="Official death certificate for legal proceedings" data-mr="कायदेशीर कामासाठी अधिकृत मृत्यू प्रमाणपत्र">Official death certificate for legal proceedings</p>
+                    <div class="service-link" data-en="Apply Now →" data-mr="आताच अर्ज करा →">Apply Now →</div>
+                </a>
+                <a class="service-card" href="#apply/residence" data-svc="residence">
+                    <div class="service-icon">🏠</div>
+                    <h3 data-en="Residence Certificate" data-mr="निवास प्रमाणपत्र">Residence Certificate</h3>
+                    <p data-en="Proof of permanent residence in Dumbarwadi" data-mr="डुंबरवाडी मधील कायम निवासाचा पुरावा">Proof of permanent residence in Dumbarwadi</p>
+                    <div class="service-link" data-en="Apply Now →" data-mr="आताच अर्ज करा →">Apply Now →</div>
+                </a>
+                <a class="service-card" href="#apply/income" data-svc="income">
+                    <div class="service-icon">💰</div>
+                    <h3 data-en="Income Certificate" data-mr="उत्पन्न प्रमाणपत्र">Income Certificate</h3>
+                    <p data-en="Annual family income proof for schemes and admissions" data-mr="योजना व प्रवेशासाठी वार्षिक कौटुंबिक उत्पन्न पुरावा">Annual family income proof for schemes and admissions</p>
+                    <div class="service-link" data-en="Apply Now →" data-mr="आताच अर्ज करा →">Apply Now →</div>
+                </a>
+                <a class="service-card" href="#apply/water" data-svc="water">
+                    <div class="service-icon">💧</div>
+                    <h3 data-en="Water Connection" data-mr="पाणी कनेक्शन">Water Connection (JJM)</h3>
+                    <p data-en="New tap water connection request under Jal Jeevan Mission" data-mr="जल जीवन मिशन अंतर्गत नवीन नळ पाणी कनेक्शन विनंती">New tap water connection request under Jal Jeevan Mission</p>
+                    <div class="service-link" data-en="Apply Now →" data-mr="आताच अर्ज करा →">Apply Now →</div>
+                </a>
+                <a class="service-card" href="#apply/property_tax" data-svc="property_tax">
+                    <div class="service-icon">🏛️</div>
+                    <h3 data-en="Property Tax Payment" data-mr="मालमत्ता कर देयक">Property Tax</h3>
+                    <p data-en="Online property tax assessment and challan payment" data-mr="ऑनलाइन मालमत्ता कर मूल्यांकन व चालान देयक">Online property tax assessment & challan payment</p>
+                    <div class="service-link" data-en="Pay Now →" data-mr="आताच भरा →">Pay Now →</div>
+                </a>
+            </div>
+            <div id="serviceFormContainer" style="margin-top:28px"></div>
+        </div>
+    </section>
+
+    <section id="complaint" class="complaint-section section-padding" style="background:#fff7ed">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Submit a Public Grievance / Complaint" data-mr="सार्वजनिक तक्रार / शिकायत सबमिट करा">📣 Complaint Grievance — तक्रार</h2>
+                <p class="section-subtitle" data-en="Report street lights, sanitation, water, roads, drainage issues. Panchayat will respond within 7 days." data-mr="गल्लीतील दिवे, स्वच्छता, पाणी, रस्ते, गटार यांच्या समस्या नोंदवा. पंचायत ७ दिवसांत उत्तर देईल.">Submit a grievance — Panchayat will respond. Track your complaint status.</p>
+            </div>
+            <div style="max-width:860px;margin:0 auto;background:white;padding:32px;border-radius:16px;box-shadow:var(--shadow)">
+                <form id="complaintForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-en="Complainant Full Name" data-mr="तक्रारदाराचे पूर्ण नाव">Complainant Full Name *</label>
+                            <input type="text" name="complainant_name" required minlength="2">
+                        </div>
+                        <div class="form-group">
+                            <label data-en="Mobile Number" data-mr="मोबाईल नंबर">Mobile Number * (10 digits)</label>
+                            <input type="tel" name="mobile" required pattern="[0-9]{10}" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-en="Complaint Type" data-mr="तक्रार प्रकार">Complaint Type *</label>
+                            <select name="complaint_type" required>
+                                <option value="">-- Select Type / प्रकार निवडा --</option>
+                                <option value="street_light">💡 Street Light / गल्लीतील दिवे</option>
+                                <option value="sanitation">🧹 Sanitation / स्वच्छता</option>
+                                <option value="water_supply">💧 Water Supply / पाणी पुरवठा</option>
+                                <option value="roads">🛣️ Road Damage / रस्त्याचे नुकसान</option>
+                                <option value="drainage">🚰 Drainage / गटार</option>
+                                <option value="garbage">🗑️ Garbage Collection / कचरा गोळा</option>
+                                <option value="public_works">🏗️ Public Works / सार्वजनिक बांधकाम</option>
+                                <option value="staff">👨‍💼 Staff Behavior / कर्मचारी वर्तन</option>
+                                <option value="other">📝 Other / इतर</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-en="Ward / Location" data-mr="वॉर्ड / स्थान">Ward / Location (वॉर्ड किंवा ठिकाण)</label>
+                            <input type="text" name="location_ward" placeholder="e.g. Ward 3 near temple / मंदिराजवळ ३ रा वॉर्ड">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Description of Complaint" data-mr="तक्रारीचे वर्णन">Description / तक्रारीचे वर्णन *</label>
+                        <textarea name="description_en" rows="4" required placeholder="Describe the issue in detail (English or Marathi)..." minlength="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Optional: Photo link (Google Drive / Cloud URL)" data-mr="पर्यायी: फोटो लिंक">Photo URL (optional, Google Drive / Cloud link)</label>
+                        <input type="url" name="photo_urls" placeholder="https://...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">📤 <span data-en="Submit Complaint" data-mr="तक्रार सबमिट करा">Submit Complaint</span></button>
+                    <div id="complaintResult" style="margin-top:16px"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="track" class="track-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Track Your Application / Complaint" data-mr="अर्ज / तक्रार ट्रॅक करा">🔍 Track Status — ट्रॅक करा</h2>
+                <p class="section-subtitle" data-en="Check status of any scheme application, service certificate or grievance using Application ID" data-mr="अर्ज क्रमांक वापरून योजना अर्ज, सेवा प्रमाणपत्र किंवा तक्रारीची स्थिती तपासा">Track any certificate application or complaint using the unique Application ID</p>
+            </div>
+            <div style="max-width:700px;margin:0 auto;background:white;padding:28px;border-radius:16px;box-shadow:var(--shadow)">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px">
+                    <div style="flex:1;min-width:120px">
+                        <label style="font-size:0.85rem;font-weight:500;margin-bottom:6px;display:block" data-en="Track Type" data-mr="ट्रॅक प्रकार">Track Type</label>
+                        <select id="trackType" style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit">
+                            <option value="scheme">🪙 Scheme Application / योजना अर्ज</option>
+                            <option value="service">📜 Service / Certificate / प्रमाणपत्र</option>
+                            <option value="complaint">📣 Complaint Grievance / तक्रार</option>
+                        </select>
+                    </div>
+                    <div style="flex:2;min-width:200px">
+                        <label style="font-size:0.85rem;font-weight:500;margin-bottom:6px;display:block" data-en="Application / Complaint ID" data-mr="अर्ज / तक्रार क्रमांक">Application ID or Mobile</label>
+                        <div style="display:flex;gap:8px">
+                            <input type="text" id="trackId" placeholder="Enter ID or Mobile Number..." style="flex:1;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit">
+                            <button id="trackBtn" class="btn btn-primary" data-en="Check" data-mr="तपासा">🔍 Check</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="trackResult"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-form" class="contactform-section section-padding" style="background:#f0fdf4">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Send a Message to Gram Panchayat" data-mr="ग्राम पंचायतला संदेश पाठवा">✉️ Contact Us — संपर्क</h2>
+                <p class="section-subtitle" data-en="Have a question, suggestion or feedback? Send us a message and we will reply back." data-mr="प्रश्न, सूचना किंवा अभिप्राय? आम्हाला संदेश पाठवा आम्ही परत उत्तर देऊ.">Ask a question or send your feedback / suggestion to the Panchayat</p>
+            </div>
+            <div style="max-width:760px;margin:0 auto;background:white;padding:32px;border-radius:16px;box-shadow:var(--shadow)">
+                <form id="contactMsgForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-en="Your Name" data-mr="तुमचे नाव">Your Name *</label>
+                            <input type="text" name="name" required minlength="2">
+                        </div>
+                        <div class="form-group">
+                            <label data-en="Your Email" data-mr="तुमचा ईमेल">Your Email (optional)</label>
+                            <input type="email" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Subject" data-mr="विषय">Subject / विषय *</label>
+                        <input type="text" name="subject" required placeholder="What is this regarding? / हे कोणत्या बाबतीत आहे?">
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Your Message" data-mr="तुमचा संदेश">Your Message / तुमचा संदेश *</label>
+                        <textarea name="message" rows="5" required minlength="10" placeholder="Write your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">✉️ <span data-en="Send Message" data-mr="संदेश पाठवा">Send Message</span></button>
+                    <div id="contactMsgResult" style="margin-top:16px"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="citizen-dashboard" class="dashboard-section section-padding hidden">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Citizen Dashboard" data-mr="नागरिक डॅशबोर्ड">👤 My Dashboard — माझे डॅशबोर्ड</h2>
+                <p class="section-subtitle" data-en="All your applications, complaints and account details in one place" data-mr="तुमचे सर्व अर्ज, तक्रारी आणि खाते तपशील एकाच ठिकाणी">Track everything you've submitted to the Panchayat</p>
+            </div>
+            <div class="stat-grid" id="dashboardStats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:28px"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+                <div style="background:white;padding:20px;border-radius:12px;box-shadow:var(--shadow)">
+                    <h3 style="color:var(--primary);margin-bottom:14px">🪙 <span data-en="My Scheme Applications" data-mr="माझे योजना अर्ज">My Scheme Applications</span></h3>
+                    <div id="mySchemes"></div>
+                </div>
+                <div style="background:white;padding:20px;border-radius:12px;box-shadow:var(--shadow)">
+                    <h3 style="color:var(--primary);margin-bottom:14px">📣 <span data-en="My Complaints" data-mr="माझ्या तक्रारी">My Complaints</span></h3>
+                    <div id="myComplaints"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="schemeModal" class="modal" aria-hidden="true">
+        <div class="modal-overlay" data-close-modal></div>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" data-close-modal aria-label="Close">&times;</button>
+            <div class="modal-header">
+                <h3 id="modalTitle" class="modal-title" data-en="Scheme Application" data-mr="योजना अर्ज">Scheme Application</h3>
+                <p id="modalSubtitle" class="modal-subtitle"></p>
+            </div>
+            <form id="schemeForm" class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-en="Full Name (English)" data-mr="पूर्ण नाव (इंग्रजी)">Full Name (English) *</label>
+                        <input type="text" name="applicant_name_en" required minlength="2">
+                    </div>
+                    <div class="form-group">
+                        <label data-en="पूर्ण नाव (मराठी)" data-mr="पूर्ण नाव (मराठी)">पूर्ण नाव (मराठी)</label>
+                        <input type="text" name="applicant_name_mr">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-en="Mobile Number" data-mr="मोबाइल नंबर">Mobile Number * (10 digits)</label>
+                        <input type="tel" name="mobile" required pattern="[0-9]{10}" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Household No." data-mr="घर क्रमांक">Household No.</label>
+                        <input type="text" name="household_no">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-en="Address (English)" data-mr="पत्ता (इंग्रजी)">Address (English)</label>
+                    <textarea name="address_en" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label data-en="पत्ता (मराठी)" data-mr="पत्ता (मराठी)">पत्ता (मराठी)</label>
+                    <textarea name="address_mr" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label data-en="Additional Notes" data-mr="अतिरिक्त टीपा">Additional Notes / सूचना</label>
+                    <textarea name="notes_en" rows="3" placeholder="Any specific details you want to mention..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" data-close-modal data-en="Cancel" data-mr="रद्द करा">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-en="Submit Application" data-mr="अर्ज सादर करा">Submit Application</button>
+                </div>
+            </form>
+            <div id="schemeSuccess" class="modal-body success-body" style="display:none;">
+                <div class="success-icon">✅</div>
+                <h4 data-en="Application Submitted!" data-mr="अर्ज सादर केला गेला!">Application Submitted!</h4>
+                <p data-en="Your application has been sent to the Gram Panchayat. You will receive confirmation via mobile." data-mr="तुमचा अर्ज ग्राम पंचायतकडे पाठवला गेला आहे. तुम्हाला मोबाइलवर पुष्टी मिळेल.">Your application has been received by the Gram Panchayat.</p>
+                <div class="application-details">
+                    <p><strong data-en="Application ID:" data-mr="अर्ज आयडी:">Application ID:</strong> <span id="appId">-</span></p>
+                    <p><strong data-en="Status:" data-mr="स्थिती:">Status:</strong> <span id="appStatus" class="badge-pending" data-en="Pending" data-mr="प्रलंबित">Pending</span></p>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" data-close-modal data-en="Close" data-mr="बंद करा">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal" aria-hidden="true">
+        <div class="modal-overlay" data-close-modal2></div>
+        <div class="modal-content" role="dialog" style="max-width:460px">
+            <button class="modal-close" data-close-modal2 aria-label="Close">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title" data-en="Citizen Login" data-mr="नागरिक लॉगिन">👤 Citizen Login — नागरिक लॉगिन</h3>
+                <p class="modal-subtitle" data-en="Login to access your dashboard and track submissions" data-mr="डॅशबोर्ड ऍक्सेस आणि सबमिशन ट्रॅक करण्यासाठी लॉगिन करा">Login to access your dashboard</p>
+            </div>
+            <form id="loginForm2" class="modal-body">
+                <div class="form-group">
+                    <label data-en="Mobile Number" data-mr="मोबाईल नंबर">Mobile Number (10 digits) *</label>
+                    <input type="tel" name="mobile" required pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10-digit mobile / 10 अंकी मोबाईल">
+                </div>
+                <div class="form-group">
+                    <label data-en="Password" data-mr="पासवर्ड">Password *</label>
+                    <input type="password" name="password" required minlength="4" placeholder="Password / पासवर्ड">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" data-en="Login" data-mr="लॉगिन">🔑 Login</button>
+                <div style="margin-top:14px;text-align:center;font-size:0.9rem">
+                    <a href="#" id="switchToRegister" style="color:var(--primary);font-weight:500" data-en="Not registered? Create account →" data-mr="नोंदणी झालेली नाही? खाते तयार करा →">Not registered? Create account →</a>
+                <a href="/admin" style="display:block;margin-top:6px;color:var(--text-gray,#555);font-size:0.85rem">🔐 Admin / Staff Login →</a>
+                </div>
+                <div id="loginResult2" style="margin-top:14px"></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal" aria-hidden="true">
+        <div class="modal-overlay" data-close-modal3></div>
+        <div class="modal-content" role="dialog" style="max-width:620px">
+            <button class="modal-close" data-close-modal3 aria-label="Close">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title" data-en="Citizen Registration" data-mr="नागरिक नोंदणी">📝 Register Citizen — नागरिक नोंदणी</h3>
+                <p class="modal-subtitle" data-en="Create account to apply for schemes, services and submit complaints" data-mr="योजना, सेवांसाठी अर्ज करण्यासाठी आणि तक्रारी सबमिट करण्यासाठी खाते तयार करा">Create your permanent citizen account</p>
+            </div>
+            <form id="registerForm" class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-en="Full Name (English)" data-mr="पूर्ण नाव (इंग्रजी)">Full Name (English) *</label>
+                        <input type="text" name="full_name_en" required minlength="2">
+                    </div>
+                    <div class="form-group">
+                        <label data-en="पूर्ण नाव (मराठी)" data-mr="पूर्ण नाव (मराठी)">पूर्ण नाव (मराठी) *</label>
+                        <input type="text" name="full_name_mr" required minlength="2">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-en="Mobile Number" data-mr="मोबाईल नंबर">Mobile (10 digits) *</label>
+                        <input type="tel" name="mobile" required pattern="[0-9]{10}" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Password (min 6 chars)" data-mr="पासवर्ड (किमान 6 अक्षरे)">Password * (min 6)</label>
+                        <input type="password" name="password" required minlength="6">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-en="Email (optional)" data-mr="ईमेल (पर्यायी)">Email (optional)</label>
+                        <input type="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Ward / Household No" data-mr="वॉर्ड / घर क्रमांक">Ward / HH No</label>
+                        <input type="text" name="household_no" placeholder="e.g. 123 / Ward 3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-en="Village Address" data-mr="गाव पत्ता">Village Address *</label>
+                    <textarea name="address_en" rows="2" required placeholder="House / Galli / Village Address"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">✅ <span data-en="Register Account" data-mr="खाते नोंदवा">Register Account</span></button>
+                <div style="margin-top:14px;text-align:center;font-size:0.9rem">
+                    <a href="#" id="switchToLogin" style="color:var(--primary);font-weight:500" data-en="Already registered? Login →" data-mr="आधीच नोंदणी झाली? लॉगिन →">Already registered? Login →</a>
+                </div>
+                <div id="registerResult" style="margin-top:14px"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <span class="logo-icon">🏛️</span>
+                        <span class="logo-text" data-en="Dumbarwadi Panchayat" data-mr="डुंबरवाडी पंचायत">Dumbarwadi Panchayat</span>
+                    </div>
+                    <p class="footer-desc" data-en="Smart Digital Information System for Dumbarwadi Gram Panchayat. Digital India • Swachh Bharat • Atmanirbhar Gram. Powered by Meri Panchayat data." data-mr="डुंबरवाडी ग्राम पंचायतसाठी स्मार्ट डिजिटल माहिती प्रणाली. डिजिटल इंडिया • स्वच्छ भारत • आत्मनिर्भर ग्राम. मेरी पंचायत डेटाद्वारे समर्थित.">Smart Digital Information System for Dumbarwadi Gram Panchayat (डुंबरवाडी). Digital India • Swachh Bharat • Atmanirbhar Gram. Powered by Meri Panchayat data.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Quick Links" data-mr="त्वरित संपर्क">Quick Links / त्वरित संपर्क</h4>
+                    <ul>
+                        <li><a href="#home" data-en="Home" data-mr="मुख्यपृष्ठ">Home</a></li>
+                        <li><a href="#profile" data-en="Village Profile" data-mr="गाव प्रोफाइल">Village Profile</a></li>
+                        <li><a href="#schemes" data-en="Schemes" data-mr="योजना">Schemes</a></li>
+                        <li><a href="#notices" data-en="Notices" data-mr="सूचना">Notices</a></li>
+                        <li><a href="#services" data-en="Services" data-mr="सुविधा">Services</a></li>
+                        <li><a href="#contacts" data-en="Contacts" data-mr="संपर्क">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-en="Office" data-mr="कार्यालय">Office / कार्यालय</h4>
+                    <p data-en="📍 Dumbarwadi Gram Panchayat Office | GP LGD Code: 185937 | Village LGD Code: 555263 | Lat: 19.25° N, Long: 74.01° E" data-mr="📍 डुंबरवाडी ग्राम पंचायत कार्यालय | GP LGD कोड: 185937 | गाव LGD कोड: 555263 | अक्षांश: 19.25° N, रेखांश: 74.01° E">📍 Dumbarwadi Gram Panchayat Office<br>GP LGD Code: 185937<br>Village LGD Code: 555263<br>Lat: 19.25° N, Long: 74.01° E</p>
+                    <p data-en="🕒 Office Timings: 10:00 AM - 5:00 PM (Monday to Saturday)" data-mr="🕒 कार्यालय वेळ: सकाळी 10:00 - संध्याकाळी 5:00 (सोमवार ते शनिवार)">🕒 Office Timings: 10:00 AM - 5:00 PM<br>(Monday to Saturday)</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-en="© 2026 Dumbarwadi Gram Panchayat Smart Information System • Population 1430 • Area 36.11 sq km" data-mr="© 2026 डुंबरवाडी ग्राम पंचायत स्मार्ट माहिती प्रणाली • जनसंख्या 1430 • क्षेत्रफळ 36.11 चौरस किमी">&copy; 2026 Dumbarwadi (डुंबरवाडी) Gram Panchayat Smart Information System • Population 1430 • Area 36.11 sq km</p>
+                <p class="footer-tag" data-en="Sarpanch: Shital Atul Gore | Secretary: Ashish Prakash Kolhe | SHGs: 12 | Tap Water HHs: 321" data-mr="सरपंच: शितल अतुल गोरे | सचिव: आशिष प्रकाश कोल्हे | स्वयंसहाय्य गट: 12 | नळ पाणी घरे: 321">सरपंच: Shital Atul Gore | सचिव: Ashish Prakash Kolhe | SHGs: 12 | Tap Water HHs: 321</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="scroll-top">↑</button>
+
+    
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const API_BASE = '/api';
+    let csrfToken = null;
+    let currentScheme = null;
+    let observer = null;
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function () {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (!targetId || targetId === '#' || targetId.startsWith('#/')) return;
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 400) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    function observeNew() {
+        const els = document.querySelectorAll(
+            '.scheme-card, .service-card, .contact-card, .notice-item, .stat-card, .emergency-item, .profile-category, .profile-stat'
+        );
+        els.forEach((el, index) => {
+            if (el.style.opacity !== '') return;
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `opacity 0.6s ease ${index * 0.04}s, transform 0.6s ease ${index * 0.04}s`;
+            observer.observe(el);
+        });
+    }
+
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 20) {
+            header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.08)';
+        } else {
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+        }
+    });
+
+    function setLanguage(lang) {
+        const translatable = document.querySelectorAll('[data-en][data-mr]');
+        translatable.forEach(el => {
+            const text = el.getAttribute('data-' + lang);
+            if (text !== null) {
+                if (el.tagName === 'TITLE') {
+                    document.title = text;
+                } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    if (el.tagName === 'INPUT' && el.type !== 'submit' && el.type !== 'button') {
+                        el.setAttribute('placeholder', text);
+                    } else {
+                        el.value = text;
+                    }
+                } else {
+                    el.textContent = text;
+                }
+            }
+        });
+        const ph = document.querySelectorAll('[data-en-placeholder][data-mr-placeholder]');
+        ph.forEach(el => {
+            const attr = lang === 'en' ? 'data-en-placeholder' : 'data-mr-placeholder';
+            const txt = el.getAttribute(attr);
+            if (txt !== null) el.setAttribute('placeholder', txt);
+        });
+        document.body.setAttribute('data-current-lang', lang);
+        document.body.classList.remove('lang-en', 'lang-mr');
+        document.body.classList.add('lang-' + lang);
+        document.documentElement.setAttribute('lang', lang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            const active = btn.getAttribute('data-lang') === lang;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-pressed', String(active));
+        });
+        try { localStorage.setItem('dumbarwadi-lang', lang); } catch (e) {}
+    }
+
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            setLanguage(this.getAttribute('data-lang'));
+        });
+    });
+
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('dumbarwadi-lang'); } catch (e) {}
+    const initialLang = savedLang === 'mr' ? 'mr' : 'en';
+    setLanguage(initialLang);
+
+    // ========= API helpers =========
+    async function fetchCsrf() {
+        try {
+            const r = await fetch(`${API_BASE}/csrf-token`);
+            const d = await r.json();
+            csrfToken = d.token || d.csrfToken || null;
+        } catch (e) { csrfToken = null; }
+    }
+
+    async function apiGet(endpoint) {
+        try {
+            const r = await fetch(`${API_BASE}${endpoint}`);
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return await r.json();
+        } catch (e) {
+            console.warn('API error:', endpoint, e);
+            return null;
+        }
+    }
+
+    async function apiPost(endpoint, body) {
+        const headers = { 'Content-Type': 'application/json' };
+        if (csrfToken) headers['X-CSRF-Token'] = csrfToken;
+        const r = await fetch(`${API_BASE}${endpoint}`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(body || {}),
+            credentials: 'same-origin'
+        });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) {
+            const err = new Error(d.error || `HTTP ${r.status}`);
+            err.code = d.code; err.data = d;
+            throw err;
+        }
+        return d;
+    }
+
+    function loadingHtml(msgEn, msgMr) {
+        const cur = document.body.getAttribute('data-current-lang') || 'en';
+        const msg = cur === 'mr' ? msgMr : msgEn;
+        return `<div class="loading-indicator">${msg}</div>`;
+    }
+
+    function bil(el, enKey, mrKey, enVal, mrVal) {
+        if (enVal != null) el.setAttribute('data-en', String(enVal));
+        if (mrVal != null) el.setAttribute('data-mr', String(mrVal));
+        const cur = document.body.getAttribute('data-current-lang') || 'en';
+        const v = cur === 'mr' && mrVal != null ? mrVal : enVal;
+        el.textContent = v != null ? String(v) : '';
+    }
+
+    // ========= Renderers =========
+    function renderHeroStats(village) {
+        const box = document.getElementById('heroStats');
+        if (!box || !village) return;
+        const population = village.total_population || 1430;
+        const area = village.area_sqkm || 36.11;
+        const hhs = village.total_hhs || 321;
+        const stats = [
+            { num: population, en: 'Total Population', mr: 'एकूण जनसंख्या' },
+            { num: area, en: 'Area (sq km)', mr: 'क्षेत्रफळ (चौरस किमी)' },
+            { num: hhs, en: 'Tap Water HHs', mr: 'नळ पाणी घरे' },
+            { num: 12, en: 'SHG Groups', mr: 'स्वयंसहाय्य गट' }
+        ];
+        box.innerHTML = stats.map(s => {
+            const num = document.createElement('div');
+            const lab = document.createElement('div');
+            num.className = 'stat-number'; num.textContent = s.num;
+            lab.className = 'stat-label'; bil(lab, null, null, s.en, s.mr);
+            const card = document.createElement('div');
+            card.className = 'stat-card'; card.appendChild(num); card.appendChild(lab);
+            return card.outerHTML;
+        }).join('');
+        observeNew();
+    }
+
+    function renderProfileGrid(stats) {
+        const box = document.getElementById('profileGrid');
+        if (!box) return;
+        if (!stats || !stats.length) { box.innerHTML = loadingHtml('Loading profile…', 'प्रोफाइल लोड होत आहे…'); return; }
+        box.innerHTML = stats.map(cat => {
+            const isJJM = cat.special === 'jjm';
+            const fullW = cat.full_width ? ' full-width' : '';
+            const h = document.createElement('h3');
+            h.className = 'profile-cat-title';
+            bil(h, null, null,
+                `${cat.icon || ''} ${cat.heading_en || ''}`,
+                `${cat.icon || ''} ${cat.heading_mr || cat.heading_en || ''}`);
+
+            let inner = '';
+            if (isJJM) {
+                const hhsVal = parseInt(cat.stat1_value || '0', 10);
+                const total = 321;
+                const pct = Math.min(100, Math.round((hhsVal / total) * 100));
+                const big = document.createElement('div');
+                big.className = 'jj-big'; big.textContent = cat.stat1_value || '0';
+                const lab = document.createElement('div');
+                lab.className = 'jj-label';
+                bil(lab, null, null, cat.stat1_label_en, cat.stat1_label_mr);
+                const barSpan = document.createElement('span');
+                bil(barSpan, null, null,
+                    `${cat.stat2_value || ''} ${cat.stat2_label_en || ''}`.trim(),
+                    `${cat.stat2_value || ''} ${cat.stat2_label_mr || cat.stat2_label_en || ''}`.trim());
+                const fill = document.createElement('div');
+                fill.className = 'jj-bar-fill'; fill.style.width = `${pct}%`; fill.appendChild(barSpan);
+                const bar = document.createElement('div');
+                bar.className = 'jj-bar'; bar.appendChild(fill);
+                const barWrap = document.createElement('div');
+                barWrap.className = 'jj-bar-wrap'; barWrap.appendChild(bar);
+                const jst = document.createElement('div');
+                jst.className = 'jj-stat'; jst.appendChild(big); jst.appendChild(lab);
+                const jc = document.createElement('div');
+                jc.className = 'jj-container'; jc.appendChild(jst); jc.appendChild(barWrap);
+                inner = jc.outerHTML;
+            } else {
+                const items = [
+                    { val: cat.stat1_value, en: cat.stat1_label_en, mr: cat.stat1_label_mr, extra: (cat.category_key === 'population' && cat.stat1_label_en === 'Male') ? ' male' : (cat.category_key === 'population' && cat.stat1_label_en === 'Female') ? ' female' : '' },
+                    { val: cat.stat2_value, en: cat.stat2_label_mr ? cat.stat2_label_en : null, mr: cat.stat2_label_mr },
+                    { val: cat.stat3_value, en: cat.stat3_label_mr ? cat.stat3_label_en : null, mr: cat.stat3_label_mr }
+                ];
+                const statsHtml = items.filter(i => i.val != null && i.val !== '').map(i => {
+                    const n = document.createElement('div');
+                    n.className = 'p-stat-num' + (i.extra || '');
+                    n.textContent = i.val;
+                    const l = document.createElement('div');
+                    l.className = 'p-stat-label';
+                    if (i.en) bil(l, null, null, i.en, i.mr);
+                    else l.textContent = i.mr || '';
+                    const ps = document.createElement('div');
+                    ps.className = 'profile-stat'; ps.appendChild(n); ps.appendChild(l);
+                    return ps.outerHTML;
+                }).join('');
+                const pb = document.createElement('div');
+                pb.className = 'profile-stats'; pb.innerHTML = statsHtml;
+                inner = pb.outerHTML;
+            }
+            const pc = document.createElement('div');
+            pc.className = 'profile-category' + fullW;
+            pc.appendChild(h); pc.insertAdjacentHTML('beforeend', inner);
+            return pc.outerHTML;
+        }).join('');
+        observeNew();
+    }
+
+    function renderSchemesGrid(schemes) {
+        const box = document.getElementById('schemesGrid');
+        if (!box) return;
+        if (!schemes || !schemes.length) { box.innerHTML = loadingHtml('Loading schemes…', 'योजना लोड होत आहेत…'); return; }
+        box.innerHTML = schemes.map(s => {
+            const icon = document.createElement('div');
+            icon.className = 'scheme-icon'; icon.textContent = s.icon || '📜';
+            const title = document.createElement('h3');
+            title.className = 'scheme-title';
+            bil(title, null, null, s.title_en, s.title_mr);
+            const desc = document.createElement('p');
+            desc.className = 'scheme-desc';
+            bil(desc, null, null, s.desc_en, s.desc_mr);
+            const tags = ((s.tags_en || '').split(',')[0] || '').trim();
+            const tagsMr = ((s.tags_mr || '').split(',')[0] || '').trim();
+            const tag = document.createElement('span');
+            tag.className = 'scheme-tag';
+            if (tagsMr) bil(tag, null, null, tags, tagsMr);
+            else tag.textContent = tags;
+            const btn = document.createElement('button');
+            btn.className = 'btn-small';
+            bil(btn, null, null, 'Know More', 'अधिक जाणून घ्या');
+            btn.dataset.schemeId = s.id;
+            const meta = document.createElement('div');
+            meta.className = 'scheme-meta'; meta.appendChild(tag); meta.appendChild(btn);
+            const card = document.createElement('div');
+            card.className = 'scheme-card';
+            if (s.accent) card.style.borderTopColor = s.accent;
+            card.appendChild(icon); card.appendChild(title); card.appendChild(desc); card.appendChild(meta);
+            return card.outerHTML;
+        }).join('');
+        box.querySelectorAll('.btn-small').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = Number(this.dataset.schemeId);
+                const sch = schemes.find(x => x.id === id);
+                if (sch) openSchemeModal(sch);
+            });
+        });
+        observeNew();
+    }
+
+    function renderNotices(notices) {
+        const box = document.getElementById('noticesList');
+        if (!box) return;
+        if (!notices || !notices.length) { box.innerHTML = loadingHtml('Loading notices…', 'सूचना लोड होत आहेत…'); return; }
+        const top4 = notices.slice(0, 4);
+        box.innerHTML = top4.map(n => {
+            const dDay = document.createElement('div');
+            dDay.className = 'date-day'; dDay.textContent = n.day || '';
+            const dMo = document.createElement('div');
+            dMo.className = 'date-month';
+            bil(dMo, null, null, n.month_en, n.month_mr);
+            const nd = document.createElement('div');
+            nd.className = 'notice-date'; nd.appendChild(dDay); nd.appendChild(dMo);
+            const t = document.createElement('h4');
+            bil(t, null, null, n.title_en, n.title_mr);
+            const p = document.createElement('p');
+            bil(p, null, null, n.desc_en, n.desc_mr);
+            const b = document.createElement('span');
+            b.className = 'notice-badge';
+            if (n.badge_color) b.style.background = n.badge_color;
+            bil(b, null, null, n.badge_en, n.badge_mr);
+            const nc = document.createElement('div');
+            nc.className = 'notice-content'; nc.appendChild(t); nc.appendChild(p); nc.appendChild(b);
+            const ni = document.createElement('div');
+            ni.className = 'notice-item'; ni.appendChild(nd); ni.appendChild(nc);
+            return ni.outerHTML;
+        }).join('');
+        observeNew();
+    }
+
+    function renderTicker(notices, schemes) {
+        const box = document.getElementById('tickerContent');
+        if (!box) return;
+        const items = [];
+        if (notices && notices.length) {
+            notices.slice(0, 5).forEach(n => {
+                const en = n.title_en;
+                const mr = n.title_mr || n.title_en;
+                items.push({ en, mr });
+            });
+        }
+        if (schemes && schemes.length) {
+            schemes.slice(0, 2).forEach(s => {
+                items.push({
+                    en: `New Applications Open — ${s.title_en}`,
+                    mr: `नवीन अर्ज सुरू — ${s.title_mr || s.title_en}`
+                });
+            });
+        }
+        if (!items.length) return;
+        const sep = '<span class="ticker-item">•</span>';
+        const html = items.map(it => {
+            const s = document.createElement('span');
+            s.className = 'ticker-item';
+            bil(s, null, null, it.en, it.mr);
+            return s.outerHTML;
+        }).join(sep);
+        box.innerHTML = html + sep + html;
+    }
+
+    function renderServices(services) {
+        const box = document.getElementById('servicesGrid');
+        if (!box) return;
+        if (!services || !services.length) { box.innerHTML = loadingHtml('Loading services…', 'सेवा लोड होत आहेत…'); return; }
+        box.innerHTML = services.map(s => {
+            const ic = document.createElement('div');
+            ic.className = 'service-icon'; ic.textContent = s.icon || '🏢';
+            const t = document.createElement('h3');
+            bil(t, null, null, s.title_en, s.title_mr);
+            const d = document.createElement('p');
+            const enClean = (s.desc_en || '').replace(/\n/g, '<br>');
+            const mrClean = (s.desc_mr || s.desc_en || '').replace(/\n/g, '<br>');
+            d.setAttribute('data-en', s.desc_en || '');
+            d.setAttribute('data-mr', s.desc_mr || s.desc_en || '');
+            const cur = document.body.getAttribute('data-current-lang') || 'en';
+            d.innerHTML = cur === 'mr' ? mrClean : enClean;
+            const c = document.createElement('div');
+            c.className = 'service-card';
+            c.appendChild(ic); c.appendChild(t); c.appendChild(d);
+            return c.outerHTML;
+        }).join('');
+        observeNew();
+    }
+
+    function renderContacts(contacts, members, village) {
+        const box = document.getElementById('contactsGrid');
+        if (!box) return;
+        const cards = [];
+        if (members && members.length) {
+            members.slice(0, 3).forEach(m => {
+                cards.push({
+                    avatar: '👤',
+                    name: m.name_en,
+                    role_en: m.role_en,
+                    role_mr: m.role_mr,
+                    info: [
+                        { icon: '📞', text: m.mobile || '-' },
+                        m.email ? { icon: '✉️', text: m.email } : null
+                    ].filter(Boolean),
+                    cls: 'official'
+                });
+            });
+        }
+        if (village) {
+            cards.push({
+                avatar: '🏛️',
+                name_en: 'Panchayat Office',
+                name_mr: 'पंचायत कार्यालय',
+                role_en: `LGD ${village.lgd_gp || '-'}`,
+                role_mr: `LGD ${village.lgd_gp || '-'}`,
+                info: [
+                    { icon: '📍', text: `Lat ${village.lat}, Long ${village.lon}` },
+                    { icon: '🕒', text_en: village.office_timings_en, text_mr: village.office_timings_mr, is_bilingual: true }
+                ],
+                cls: 'official'
+            });
+        }
+        if (!cards.length) { box.innerHTML = loadingHtml('Loading contacts…', 'संपर्क लोड होत आहेत…'); return; }
+        box.innerHTML = cards.map(c => {
+            const av = document.createElement('div');
+            av.className = 'contact-avatar'; av.textContent = c.avatar || '👤';
+            const nm = document.createElement('h3');
+            nm.className = 'contact-name';
+            if (c.name_mr) bil(nm, null, null, c.name, c.name_mr);
+            else nm.textContent = c.name;
+            const rl = document.createElement('p');
+            rl.className = 'contact-role';
+            bil(rl, null, null, c.role_en, c.role_mr);
+            const infoHtml = (c.info || []).map(i => {
+                const p = document.createElement('p');
+                p.className = 'contact-info';
+                if (i.is_bilingual) {
+                    const en = `${i.icon} ${i.text_en || i.text}`;
+                    const mr = `${i.icon} ${i.text_mr || i.text}`;
+                    bil(p, null, null, en, mr);
+                } else {
+                    p.textContent = `${i.icon} ${i.text}`;
+                }
+                return p.outerHTML;
+            }).join('');
+            const cc = document.createElement('div');
+            cc.className = 'contact-card ' + (c.cls || '');
+            cc.appendChild(av); cc.appendChild(nm); cc.appendChild(rl);
+            cc.insertAdjacentHTML('beforeend', infoHtml);
+            return cc.outerHTML;
+        }).join('');
+        observeNew();
+    }
+
+    function renderEmergency(contacts) {
+        const box = document.getElementById('emergencyGrid');
+        if (!box) return;
+        const em = (contacts || []).filter(c => c.is_emergency === 1 || c.is_emergency === true);
+        const defaults = [
+            { icon: '🚓', en: 'Police', mr: 'पोलीस', phone: '100' },
+            { icon: '🚑', en: 'Ambulance', mr: 'रुग्णवाहिका', phone: '108' },
+            { icon: '🚒', en: 'Fire Brigade', mr: 'अग्निशमन', phone: '101' },
+            { icon: '💡', en: 'Electricity Complaint', mr: 'वीज तक्रार', phone: '1912' }
+        ];
+        const items = em.length ? em.map(c => ({
+            icon: /🚓|🚑|🚒|🏥|💡|💧/.test(c.extra_value || c.mobile || '') ? (c.extra_value || '') : '📞',
+            en: c.role_en, mr: c.role_mr,
+            phone: c.mobile || c.extra_value
+        })) : defaults;
+        if (!items.length) { box.innerHTML = ''; return; }
+        box.innerHTML = items.map(i => {
+            const ic = document.createElement('span');
+            ic.className = 'emergency-icon'; ic.textContent = i.icon || '📞';
+            const st = document.createElement('strong');
+            bil(st, null, null, i.en, i.mr);
+            const ph = document.createElement('p');
+            ph.className = 'emergency-phone'; ph.textContent = i.phone || '';
+            const inner = document.createElement('div');
+            inner.appendChild(st); inner.appendChild(ph);
+            const el = document.createElement('div');
+            el.className = 'emergency-item'; el.appendChild(ic); el.appendChild(inner);
+            return el.outerHTML;
+        }).join('');
+        observeNew();
+    }
+
+    // ========= Modal =========
+    function openSchemeModal(scheme) {
+        currentScheme = scheme;
+        const modal = document.getElementById('schemeModal');
+        const title = document.getElementById('modalTitle');
+        const sub = document.getElementById('modalSubtitle');
+        const cur = document.body.getAttribute('data-current-lang') || 'en';
+        title.setAttribute('data-en', scheme.title_en);
+        title.setAttribute('data-mr', scheme.title_mr || scheme.title_en);
+        title.textContent = cur === 'mr' ? (scheme.title_mr || scheme.title_en) : scheme.title_en;
+        const en = `Apply for ${scheme.title_en} (${scheme.scheme_code ? scheme.scheme_code + ' • ' : ''}Dumbarwadi GP LGD 185937)`;
+        const mr = `${scheme.title_mr || scheme.title_en} साठी अर्ज (${scheme.scheme_code ? scheme.scheme_code + ' • ' : ''}LGD 185937)`;
+        sub.setAttribute('data-en', en); sub.setAttribute('data-mr', mr);
+        sub.textContent = cur === 'mr' ? mr : en;
+        document.getElementById('schemeForm').style.display = '';
+        document.getElementById('schemeSuccess').style.display = 'none';
+        document.getElementById('schemeForm').reset();
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('schemeModal');
+        if (modal) {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        currentScheme = null;
+    }
+
+    document.querySelectorAll('[data-close-modal]').forEach(el => {
+        el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    document.getElementById('schemeForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const fd = new FormData(this);
+        const body = Object.fromEntries(fd.entries());
+        if (currentScheme) body.scheme_id = currentScheme.id;
+        try {
+            if (!csrfToken) await fetchCsrf();
+            const res = await apiPost('/scheme-applications', body);
+            document.getElementById('appId').textContent = res.id || '-';
+            document.getElementById('appStatus').textContent = res.status || 'pending';
+            this.style.display = 'none';
+            document.getElementById('schemeSuccess').style.display = '';
+        } catch (err) {
+            const cur = document.body.getAttribute('data-current-lang') || 'en';
+            const msg = cur === 'mr' ? 'त्रुटी: ' + (err.message || 'अर्ज पाठवताना समस्या') : 'Error: ' + (err.message || 'Failed to submit application');
+            alert(msg);
+        }
+    });
+
+    // ========= NEW: Toast, Search, A11y, Account, Auth, Projects, Gramsabha, Apply, Complaint, Track, Contact, Dashboard =========
+
+    const extraState = { citizen: null, searchDebounce: null, fontStep: 1, theme: 'normal' };
+
+    function showToast(type, msgEn, msgMr, timeoutMs = 4500) {
+        const container = document.getElementById('toastContainer');
+        if (!container) return;
+        const cur = document.body.getAttribute('data-current-lang') || 'en';
+        const msg = cur === 'mr' && msgMr ? msgMr : (msgEn || '');
+        const toast = document.createElement('div');
+        toast.className = 'toast ' + (type || 'success');
+        const icon = document.createElement('span');
+        icon.textContent = { success: '✓', error: '✕', warning: '⚠' }[type] || 'ℹ';
+        icon.style.fontWeight = '700';
+        icon.style.flexShrink = '0';
+        const span = document.createElement('span');
+        span.textContent = msg;
+        const close = document.createElement('button');
+        close.className = 'toast-close';
+        close.setAttribute('aria-label', 'Close');
+        close.innerHTML = '&times;';
+        close.addEventListener('click', () => { toast.classList.remove('active'); setTimeout(() => toast.remove(), 320); });
+        toast.append(icon, span, close);
+        container.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('active'));
+        if (timeoutMs > 0) setTimeout(() => { toast.classList.remove('active'); setTimeout(() => toast.remove(), 320); }, timeoutMs);
+    }
+
+    function bilStr(record, field) {
+        const cur = document.body.getAttribute('data-current-lang') || 'en';
+        if (!record) return '';
+        const mr = record[field + '_mr'];
+        const en = record[field + '_en'];
+        return (cur === 'mr' && mr != null && mr !== '') ? mr : (en != null ? en : (mr != null ? mr : ''));
+    }
+
+    const BREADCRUMBS = {
+        home: ['Home', 'मुख्यपृष्ठ'], about: ['About', 'बद्दल'], profile: ['Profile', 'प्रोफाइल'],
+        projects: ['Projects', 'प्रकल्प'], gramsabha: ['Gram Sabha', 'ग्रामसभा'],
+        schemes: ['Schemes', 'योजना'], services: ['Services', 'सुविधा'],
+        'service-apply': ['Apply', 'अर्ज'], complaint: ['Complaints', 'तक्रारी'],
+        track: ['Track', 'ट्रॅक'], notices: ['Notices', 'सूचना'],
+        'contact-form': ['Contact', 'संपर्क'], contacts: ['Contacts', 'संपर्क'],
+        'citizen-dashboard': ['My Dashboard', 'माझे डॅशबोर्ड']
+    };
+    function updateBreadcrumb(id) {
+        const el = document.getElementById('breadcrumbs-nav');
+        if (!el) return;
+        const cur = document.body.getAttribute('data-current-lang') || 'en';
+        const i = cur === 'mr' ? 1 : 0;
+        const home = cur === 'mr' ? '🏠 मुख्यपृष्ठ' : '🏠 Home';
+        const crumb = BREADCRUMBS[id] ? [BREADCRUMBS[id][i]] : [];
+        const sep = ' <span class="crumb-sep">›</span> ';
+        el.innerHTML = '<a href="#home">' + home + '</a>' + (crumb.length ? sep + '<span>' + crumb[0] + '</span>' : '');
+    }
+    const sections = ['home','about','profile','projects','gramsabha','schemes','services','service-apply','complaint','track','notices','contacts','contact-form','citizen-dashboard'];
+    const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting && e.intersectionRatio > 0.55) updateBreadcrumb(e.target.id); });
+    }, { threshold: [0.55] });
+    sections.forEach(id => { const el = document.getElementById(id); if (el) observer2.observe(el); });
+
+    // GLOBAL SEARCH
+    const gs = document.getElementById('globalSearch');
+    const gsRes = document.getElementById('searchResults');
+    if (gs && gsRes) {
+        gs.addEventListener('input', () => {
+            clearTimeout(extraState.searchDebounce);
+            const q = gs.value.trim();
+            if (!q) { gsRes.classList.remove('visible'); gsRes.innerHTML = ''; return; }
+            extraState.searchDebounce = setTimeout(async () => {
+                try {
+                    const r = await apiGet('/search?q=' + encodeURIComponent(q));
+                    const data = r && r.data ? r.data : null;
+                    if (!data || (!data.schemes?.length && !data.notices?.length && !data.services?.length && !data.projects?.length && !data.gramsabha?.length)) {
+                        gsRes.innerHTML = '<div class="search-empty" data-en="No results found" data-mr="कोणतेही परिणाम सापडले नाहीत">No results found</div>';
+                    } else {
+                        const groups = [
+                            ['schemes', 'Schemes / योजना', data.schemes],
+                            ['notices', 'Notices / सूचना', data.notices],
+                            ['services', 'Services / सुविधा', data.services],
+                            ['projects', 'Projects / प्रकल्प', data.projects],
+                            ['gramsabha', 'Gram Sabha / ग्रामसभा', data.gramsabha]
+                        ];
+                        let html = '';
+                        groups.forEach(([key, label, arr]) => {
+                            if (!arr || !arr.length) return;
+                            html += '<div class="search-group-label">' + label + '</div>';
+                            html += arr.slice(0, 5).map(x => {
+                                const ttl = bilStr(x, 'title') || x.title_en || x.title_mr || x.venue_en || x.complaint_type || '';
+                                const dsc = bilStr(x, 'desc') || bilStr(x, 'description') || x.address_en || x.badge_en || '';
+                                const hash = (key === 'schemes' ? '#schemes' : key === 'notices' ? '#notices' : key === 'services' ? '#services' : key === 'projects' ? '#projects' : '#gramsabha');
+                                return '<a class="search-result-item" href="' + hash + '"><div><div class="result-title">' + ttl + '</div><div class="result-desc">' + dsc + '</div></div><span style="font-size:1.2rem">→</span></a>';
+                            }).join('');
+                        });
+                        gsRes.innerHTML = html;
+                        gsRes.querySelectorAll('.search-result-item').forEach(it => it.addEventListener('click', () => { gsRes.classList.remove('visible'); gs.value = ''; }));
+                    }
+                    gsRes.classList.add('visible');
+                } catch (e) { gsRes.classList.remove('visible'); }
+            }, 350);
+        });
+        document.addEventListener('click', (e) => {
+            if (!gs.contains(e.target) && !gsRes.contains(e.target)) gsRes.classList.remove('visible');
+        });
+    }
+
+    // A11Y TOOLBAR
+    const a11yBtn = document.getElementById('a11yBtn');
+    if (a11yBtn) {
+        a11yBtn.addEventListener('click', () => {
+            let panel = document.querySelector('.a11y-panel');
+            if (!panel) {
+                panel = document.createElement('div');
+                panel.className = 'a11y-panel';
+                panel.setAttribute('role', 'dialog');
+                panel.innerHTML = `
+                    <h5 data-en="Font Size" data-mr="फॉन्ट आकार">Font Size</h5>
+                    <div class="a11y-font-group">
+                        <button data-f="0.85">A-</button><button data-f="1" class="active">A</button><button data-f="1.15">A+</button><button data-f="1.3">A++</button>
+                    </div>
+                    <h5 data-en="Contrast" data-mr="कॉन्ट्रास्ट">Contrast</h5>
+                    <div class="a11y-theme-row">
+                        <button data-t="normal" class="active">Normal</button>
+                        <button data-t="dark">Dark</button>
+                        <button data-t="high">High</button>
+                    </div>`;
+                a11yBtn.parentNode.appendChild(panel);
+                panel.querySelectorAll('.a11y-font-group button').forEach(b => b.addEventListener('click', () => {
+                    panel.querySelectorAll('.a11y-font-group button').forEach(x => x.classList.remove('active'));
+                    b.classList.add('active');
+                    const f = parseFloat(b.dataset.f); extraState.fontStep = f;
+                    document.documentElement.style.fontSize = (16 * f) + 'px';
+                }));
+                panel.querySelectorAll('.a11y-theme-row button').forEach(b => b.addEventListener('click', () => {
+                    panel.querySelectorAll('.a11y-theme-row button').forEach(x => x.classList.remove('active'));
+                    b.classList.add('active');
+                    extraState.theme = b.dataset.t;
+                    document.body.classList.remove('theme-dark', 'theme-high');
+                    if (b.dataset.t === 'dark') document.body.classList.add('theme-dark');
+                    if (b.dataset.t === 'high') document.body.classList.add('theme-high');
+                }));
+            }
+            panel.classList.toggle('visible');
+            a11yBtn.setAttribute('aria-expanded', panel.classList.contains('visible'));
+        });
+        document.addEventListener('click', (e) => {
+            const p = document.querySelector('.a11y-panel');
+            if (p && !p.contains(e.target) && !a11yBtn.contains(e.target)) p.classList.remove('visible');
+        });
+    }
+
+    // ACCOUNT MENU
+    const accBtn = document.getElementById('accountBtn');
+    const accMenu = document.getElementById('accountMenu');
+    if (accBtn && accMenu) {
+        accBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = accMenu.hasAttribute('hidden') ? false : true;
+            if (open) { accMenu.hidden = true; accBtn.setAttribute('aria-expanded','false'); }
+            else { accMenu.hidden = false; accBtn.setAttribute('aria-expanded','true'); }
+        });
+        document.addEventListener('click', () => { accMenu.hidden = true; accBtn.setAttribute('aria-expanded','false'); });
+    }
+    const modalOpen = (id) => { document.body.style.overflow = 'hidden'; const m = document.getElementById(id); if (m) { m.classList.add('open'); m.setAttribute('aria-hidden','false'); } };
+    const modalClose = (id) => { document.body.style.overflow = ''; const m = document.getElementById(id); if (m) { m.classList.remove('open'); m.setAttribute('aria-hidden','true'); } };
+    document.getElementById('openLogin')?.addEventListener('click', (e) => { e.preventDefault(); modalClose('registerModal'); modalOpen('loginModal'); });
+    document.getElementById('openRegister')?.addEventListener('click', (e) => { e.preventDefault(); modalClose('loginModal'); modalOpen('registerModal'); });
+    document.getElementById('switchToRegister')?.addEventListener('click', (e) => { e.preventDefault(); modalClose('loginModal'); modalOpen('registerModal'); });
+    document.getElementById('switchToLogin')?.addEventListener('click', (e) => { e.preventDefault(); modalClose('registerModal'); modalOpen('loginModal'); });
+    document.querySelectorAll('[data-close-modal2], [data-close-modal3]').forEach(el => el.addEventListener('click', () => { modalClose('loginModal'); modalClose('registerModal'); }));
+
+    function refreshAccountUI() {
+        const lbl = document.getElementById('accountLabel');
+        const dash = document.getElementById('dashLink');
+        const lout = document.getElementById('logoutLink');
+        if (extraState.citizen) {
+            const name = extraState.citizen.full_name_en || extraState.citizen.full_name_mr || extraState.citizen.name || 'Citizen';
+            if (lbl) { lbl.textContent = name; lbl.setAttribute('data-en', name); lbl.setAttribute('data-mr', name); }
+            if (dash) dash.hidden = false;
+            if (lout) lout.hidden = false;
+        } else {
+            if (lbl) { lbl.setAttribute('data-en','Login/Register'); lbl.setAttribute('data-mr','लॉगिन/नोंदणी'); lbl.textContent = lbl.getAttribute('data-en'); }
+            if (dash) dash.hidden = true;
+            if (lout) lout.hidden = true;
+        }
+    }
+
+    // REGISTER
+    document.getElementById('registerForm')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const resEl = document.getElementById('registerResult');
+        resEl.innerHTML = '<div class="loader" style="display:inline-block;width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 0.6s linear infinite;vertical-align:middle;margin-right:8px"></div>Registering...';
+        try {
+            const fd = new FormData(this.registerForm);
+            const body = Object.fromEntries(fd.entries());
+            if (!csrfToken) await fetchCsrf();
+            const headers = { 'Content-Type':'application/json' };
+            if (csrfToken) headers['X-CSRF-Token'] = csrfToken;
+            const r = await fetch(API_BASE + '/citizen/register', { method:'POST', headers, body: JSON.stringify(body), credentials:'same-origin' });
+            const d = await r.json().catch(() => ({}));
+            if (!r.ok) { resEl.innerHTML = '<div style="color:var(--danger);font-size:0.88rem">❌ ' + (d.error || 'Registration failed') + '</div>'; return; }
+            extraState.citizen = d.data || d.citizen || null;
+            refreshAccountUI();
+            resEl.innerHTML = '<div style="color:var(--success);font-size:0.88rem">✅ Registration successful! Loading dashboard...</div>';
+            setTimeout(() => { modalClose('registerModal'); showToast('success','Account created successfully','खाते यशस्वीरित्या तयार'); showDashboard(); }, 1200);
+        } catch (err) { resEl.innerHTML = '<div style="color:var(--danger)">❌ Network error</div>'; }
+    });
+
+    // LOGIN
+    document.getElementById('loginForm2')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const resEl = document.getElementById('loginResult2');
+        resEl.innerHTML = '<div class="loader" style="display:inline-block;width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 0.6s linear infinite;vertical-align:middle;margin-right:8px"></div>Logging in...';
+        try {
+            const fd = new FormData(this.loginForm2);
+            const body = Object.fromEntries(fd.entries());
+            const r = await fetch(API_BASE + '/citizen/login', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), credentials:'same-origin' });
+            const d = await r.json().catch(() => ({}));
+            if (!r.ok) { resEl.innerHTML = '<div style="color:var(--danger);font-size:0.88rem">❌ ' + (d.error || 'Login failed - check mobile/password') + '</div>'; return; }
+            extraState.citizen = d.data || d.citizen || null;
+            refreshAccountUI();
+            resEl.innerHTML = '<div style="color:var(--success);font-size:0.88rem">✅ Login successful!</div>';
+            setTimeout(() => { modalClose('loginModal'); showToast('success','Logged in','लॉगिन झाले'); showDashboard(); }, 900);
+        } catch (err) { resEl.innerHTML = '<div style="color:var(--danger)">❌ Network error</div>'; }
+    });
+
+    // LOGOUT
+    document.getElementById('logoutLink')?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        try { await fetch(API_BASE + '/citizen/logout', { method:'POST', headers:{'Content-Type':'application/json'}, credentials:'same-origin' }); } catch(e) {}
+        extraState.citizen = null; refreshAccountUI();
+        document.getElementById('citizen-dashboard').classList.add('hidden');
+        showToast('success','Logged out','बाहेर पडले');
+    });
+
+    async function checkCitizen() {
+        try {
+            const r = await fetch(API_BASE + '/citizen/me', { credentials:'same-origin' });
+            const d = await r.json();
+            if (r.ok) extraState.citizen = d.data || d.citizen || null;
+        } catch(e) { extraState.citizen = null; }
+        refreshAccountUI();
+    }
+
+    // PROJECTS
+    async function renderProjects() {
+        const summaryEl = document.getElementById('projectsSummary');
+        const gridEl = document.getElementById('projectsGrid');
+        if (!summaryEl || !gridEl) return;
+        try {
+            const [summaryR, listR] = await Promise.all([apiGet('/projects/summary'), apiGet('/projects')]);
+            const summary = summaryR?.data || null;
+            const list = listR?.data || [];
+            if (summary) {
+                const bs = summary.by_status || {};
+                const inProgCount = (bs.in_progress?.count || 0) + (bs.ongoing?.count || 0);
+                const completedCount = bs.completed?.count || 0;
+                const totalBudget = summary.total_cost != null ? summary.total_cost : 0;
+                const totalSpent = summary.total_spent != null ? summary.total_spent : 0;
+                summaryEl.innerHTML = `
+                    <div class="stat-card"><div class="value">${summary.total_projects || 0}</div><div class="label" data-en="Total Projects" data-mr="एकूण प्रकल्प">Total Projects</div></div>
+                    <div class="stat-card"><div class="value" style="color:var(--warning)">${inProgCount}</div><div class="label" data-en="In Progress" data-mr="सुरू आहेत">In Progress</div></div>
+                    <div class="stat-card"><div class="value" style="color:var(--success)">${completedCount}</div><div class="label" data-en="Completed" data-mr="पूर्ण">Completed</div></div>
+                    <div class="stat-card"><div class="value" style="color:var(--primary)">₹${(totalBudget / 100000).toFixed(1)}L</div><div class="label" data-en="Total Budget" data-mr="एकूण बजेट">Total Budget</div></div>
+                    <div class="stat-card"><div class="value" style="color:var(--accent)">₹${(totalSpent / 100000).toFixed(1)}L</div><div class="label" data-en="Total Spent" data-mr="एकूण खर्च">Total Spent</div></div>
+                `;
+            }
+            const statusMap = { completed:'status-completed', in_progress:'status-inprogress', planning:'status-planned', planned:'status-planned', ongoing:'status-inprogress', halted:'status-halted' };
+            gridEl.innerHTML = list.length ? list.map(p => {
+                const pct = p.progress_percent != null ? p.progress_percent : 0;
+                return `
+                <div class="project-card ${statusMap[p.status] || ''}">
+                    <h4>${bil(p,'title')}</h4>
+                    <p style="font-size:0.82rem;color:var(--text-gray);margin-bottom:6px">${bil(p,'category') || ''} ${p.status ? '• <span style="font-weight:600">' + p.status + '</span>' : ''}</p>
+                    <div class="project-meta">
+                        ${p.start_date ? '<span>📅 ' + p.start_date + (p.end_date ? ' → ' + p.end_date : '') + '</span>' : ''}
+                        ${p.cost_total != null ? '<span>💰 ₹' + (p.cost_total/100000).toFixed(1) + 'L</span>' : ''}
+                        ${p.funding_source_en ? '<span>🏛️ ' + (bil(p,'funding_source')) + '</span>' : ''}
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width:${Math.min(100,Math.max(0,pct))}%"></div></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text-gray)"><span>${pct}% ${pct>=100?'✅':''}</span>${p.progress_percent!=null?'':'Estimated'}</div>
+                    ${p.cost_total != null ? `<div class="project-funds"><span>Spent: <strong>₹${((p.cost_spent||0)/100000).toFixed(1)}L</strong></span><span>Budget: <strong>₹${(p.cost_total/100000).toFixed(1)}L</strong></span></div>` : ''}
+                </div>`;
+            }).join('') : '<div class="empty-state" style="background:white;border-radius:12px;box-shadow:var(--shadow)"><h3>No projects yet</h3><p>Data will be available once Panchayat adds projects.</p></div>';
+            const cur = document.body.getAttribute('data-current-lang') || 'en';
+            document.querySelectorAll('.label, [data-en]').forEach(el => {
+                if (el.getAttribute('data-en')) { el.textContent = cur === 'mr' ? (el.getAttribute('data-mr') || el.getAttribute('data-en')) : el.getAttribute('data-en'); }
+            });
+        } catch (e) { summaryEl.innerHTML=''; gridEl.innerHTML = '<p style="color:var(--text-gray);text-align:center;padding:30px">Could not load projects.</p>'; }
+    }
+
+    // GRAM SABHA
+    async function renderGramsabha() {
+        const upEl = document.getElementById('gsUpcoming');
+        const pastEl = document.getElementById('gsPast');
+        if (!upEl || !pastEl) return;
+        try {
+            const [upR, pastR] = await Promise.all([apiGet('/gram-sabha/upcoming'), apiGet('/gram-sabha/past')]);
+            const up = upR?.data || [];
+            const past = pastR?.data || [];
+            const fmtCard = (m, isPast) => {
+                const d = new Date(m.meeting_date || m.date_iso);
+                const day = isNaN(d) ? '?' : d.getDate();
+                const mon = isNaN(d) ? '' : d.toLocaleString('en-US',{month:'short'}).toUpperCase();
+                const yr = isNaN(d) ? '' : d.getFullYear();
+                return `<div class="gs-card">
+                    <div class="gs-date-col"><div class="gs-day">${day}</div><div class="gs-month">${mon}</div><div class="gs-year">${yr}</div></div>
+                    <div class="gs-body">
+                        <h4>${bil(m,'venue') || 'Gram Sabha Meeting'}</h4>
+                        <div class="meta">🕒 ${m.meeting_time || '11:00 AM'} • 📍 ${bil(m,'venue') || 'GP Office'}</div>
+                        <div class="meta">👤 Chairman: ${bil(m,'chairperson') || '-'}</div>
+                        ${m.attendance_count != null ? `<div class="meta">👥 Attended: ${m.attendance_count} villagers</div>` : ''}
+                        <div class="gs-btn-row">
+                            ${m.agenda_pdf ? `<a href="${m.agenda_pdf}" target="_blank" rel="noopener">📄 Agenda</a>` : ''}
+                            ${m.minutes_pdf ? `<a href="${m.minutes_pdf}" target="_blank" rel="noopener" class="primary-btn">📋 Minutes</a>` : (isPast && (m.minutes_en || m.minutes_mr) ? `<button onclick="alert(${(JSON.stringify((bil(m,'minutes')||'').slice(0,400))).replace(/"/g,'&quot;')})">📋 Minutes</button>` : '')}
+                            ${!isPast ? `<a href="#contact-form" class="primary-btn">✅ Mark Attendance</a>` : ''}
+                        </div>
+                    </div>
+                </div>`;
+            };
+            upEl.innerHTML = up.length ? up.map(m => fmtCard(m,false)).join('') : '<div class="empty-state" style="background:white;border-radius:12px;box-shadow:var(--shadow)"><h3>No upcoming meetings</h3><p>Next Gram Sabha date will be announced here.</p></div>';
+            pastEl.innerHTML = past.length ? past.map(m => fmtCard(m,true)).join('') : '<div class="empty-state" style="background:white;border-radius:12px;box-shadow:var(--shadow)"><h3>No past meetings data</h3><p>Past minutes will be uploaded by Panchayat.</p></div>';
+        } catch(e) { upEl.innerHTML = pastEl.innerHTML = '<p style="color:var(--text-gray);text-align:center;padding:20px">Could not load Gram Sabha data.</p>'; }
+    }
+
+    // SERVICE APPLICATION FORMS
+    const SVC_META = {
+        birth: { title_en:'Birth Certificate', title_mr:'जन्म प्रमाणपत्र', icon:'👶', fields:[
+            {k:'applicant_fullname_en', l_en:"Applicant's Full Name (EN)", l_mr:"अर्जदाराचे पूर्ण नाव (इ)", req:true},
+            {k:'applicant_fullname_mr', l_en:"Applicant's Full Name (MR)", l_mr:"अर्जदाराचे पूर्ण नाव (मरा)", req:true},
+            {k:'mobile', l_en:'Mobile 10 digits', l_mr:'मोबाईल 10 अंक', req:true, type:'tel', pat:'[0-9]{10}'},
+            {k:'email', l_en:'Email (optional)', l_mr:'ईमेल (पर्यायी)'},
+            {k:'child_name_en', l_en:"Child's Name (English)", l_mr:"मुलाचे नाव (इंग्रजी)", req:true},
+            {k:'child_name_mr', l_en:"Child's Name (Marathi)", l_mr:"मुलाचे नाव (मराठी)", req:true},
+            {k:'date_of_birth', l_en:'Date of Birth', l_mr:'जन्म तारीख', req:true, type:'date'},
+            {k:'gender', l_en:'Gender', l_mr:'लिंग', req:true, opts:[['male','Male / पुरुष'],['female','Female / स्त्री'],['transgender','Transgender / ट्रान्सजेंडर']]},
+            {k:'place_of_birth', l_en:'Place of Birth (Hospital/Home)', l_mr:'जन्म ठिकाण (रुग्णालय/घर)'},
+            {k:'hospital_name', l_en:'Hospital Name', l_mr:'रुग्णालयाचे नाव'},
+            {k:'mother_name', l_en:"Mother's Full Name", l_mr:'आईचे पूर्ण नाव', req:true},
+            {k:'father_name', l_en:"Father's Full Name", l_mr:'वडिलांचे पूर्ण नाव', req:true},
+            {k:'address_en', l_en:'Residential Address (EN)', l_mr:'रहिवासी पत्ता (इ)', req:true},
+            {k:'address_mr', l_en:'Residential Address (MR)', l_mr:'रहिवासी पत्ता (मरा)'},
+            {k:'weight_g', l_en:'Birth Weight (grams)', l_mr:'जन्म वजन (ग्रॅम)', type:'number'},
+            {k:'ward_no', l_en:'Ward Number / HH No', l_mr:'वॉर्ड क्र / घर क्रमांक', type:'number'},
+        ]},
+        death: { title_en:'Death Certificate', title_mr:'मृत्यू प्रमाणपत्र', icon:'🕊️', fields:[
+            {k:'applicant_fullname_en', l_en:"Applicant's Name (EN)", l_mr:"अर्जदाराचे नाव (इ)", req:true},
+            {k:'applicant_fullname_mr', l_en:"Applicant's Name (MR)", l_mr:"अर्जदाराचे नाव (मरा)", req:true},
+            {k:'mobile', l_en:'Mobile 10 digits', l_mr:'मोबाईल 10 अंक', req:true, type:'tel', pat:'[0-9]{10}'},
+            {k:'deceased_name_en', l_en:"Deceased's Name (EN)", l_mr:"मृत व्यक्तीचे नाव (इ)", req:true},
+            {k:'deceased_name_mr', l_en:"Deceased's Name (MR)", l_mr:"मृत व्यक्तीचे नाव (मरा)", req:true},
+            {k:'date_of_death', l_en:'Date of Death', l_mr:'मृत्यू तारीख', req:true, type:'date'},
+            {k:'place_of_death', l_en:'Place of Death', l_mr:'मृत्यू ठिकाण'},
+            {k:'cause_of_death', l_en:'Cause of Death', l_mr:'मृत्यू कारण'},
+            {k:'age_years', l_en:'Age (Years)', l_mr:'वय (वर्षे)', type:'number'},
+            {k:'gender', l_en:'Gender', l_mr:'लिंग', opts:[['male','Male'],['female','Female'],['other','Other']]},
+            {k:'relation_to_applicant', l_en:'Relation to Applicant', l_mr:'अर्जदाराशी नाते', req:true},
+            {k:'address_en', l_en:'Address (EN)', l_mr:'पत्ता (इ)', req:true},
+        ]},
+        residence: { title_en:'Residence Certificate', title_mr:'निवास प्रमाणपत्र', icon:'🏠', fields:[
+            {k:'applicant_fullname_en', l_en:'Full Name (EN)', l_mr:'पूर्ण नाव (इ)', req:true},
+            {k:'applicant_fullname_mr', l_en:'Full Name (MR)', l_mr:'पूर्ण नाव (मरा)', req:true},
+            {k:'mobile', l_en:'Mobile 10 digits', l_mr:'मोबाईल 10 अंक', req:true, type:'tel', pat:'[0-9]{10}'},
+            {k:'dob', l_en:'Date of Birth', l_mr:'जन्म तारीख', type:'date'},
+            {k:'gender', l_en:'Gender', l_mr:'लिंग', opts:[['male','Male'],['female','Female'],['other','Other']]},
+            {k:'duration_stay_years', l_en:'Years staying in village', l_mr:'गावात राहिलेले वर्ष', req:true, type:'number'},
+            {k:'purpose', l_en:'Purpose of certificate', l_mr:'प्रमाणपत्राचा हेतू', req:true, opts:[['education','Education / शिक्षण'],['employment','Employment / नोकरी'],['government_scheme','Govt Scheme / सरकारी योजना'],['bank_loan','Bank Loan / बँक कर्ज'],['other','Other / इतर']]},
+            {k:'address_en', l_en:'Full Address (EN)', l_mr:'संपूर्ण पत्ता (इ)', req:true},
+            {k:'address_mr', l_en:'Full Address (MR)', l_mr:'संपूर्ण पत्ता (मरा)'},
+            {k:'household_no', l_en:'Ration Card / HH No', l_mr:'रेशन कार्ड / घर क्रमांक'},
+            {k:'ward_no', l_en:'Ward No', l_mr:'वॉर्ड क्र', type:'number'},
+        ]},
+        income: { title_en:'Income Certificate', title_mr:'उत्पन्न प्रमाणपत्र', icon:'💰', fields:[
+            {k:'applicant_fullname_en', l_en:'Full Name (EN)', l_mr:'पूर्ण नाव (इ)', req:true},
+            {k:'applicant_fullname_mr', l_en:'Full Name (MR)', l_mr:'पूर्ण नाव (मरा)', req:true},
+            {k:'mobile', l_en:'Mobile 10 digits', l_mr:'मोबाईल 10 अंक', req:true, type:'tel', pat:'[0-9]{10}'},
+            {k:'annual_income_rs', l_en:'Annual Family Income (₹)', l_mr:'वार्षिक कौटुंबिक उत्पन्न (₹)', req:true, type:'number'},
+            {k:'occupation', l_en:'Occupation', l_mr:'व्यवसाय', req:true, opts:[['farmer','Farmer / शेतकरी'],['laborer','Laborer / मजूर'],['business','Business / व्यवसाय'],['service','Service / नोकरी'],['self_employed','Self Employed / स्वयंरोजगार'],['housewife','Housewife / गृहिणी'],['student','Student / विद्यार्थी'],['retired','Retired / सेवानिवृत्त'],['unemployed','Unemployed / बेरोजगार']]},
+            {k:'employer_name', l_en:"Employer's Name", l_mr:'नियोक्त्याचे नाव'},
+            {k:'family_members', l_en:'Total Family Members', l_mr:'कुटुंबातील एकूण सदस्य', type:'number'},
+            {k:'address_en', l_en:'Address (EN)', l_mr:'पत्ता (इ)', req:true},
+            {k:'ration_card_type', l_en:'Ration Card Type', l_mr:'रेशन कार्ड प्रकार', opts:[['APL','APL'],['BPL','BPL'],['AAY','AAY'],['None','None']]},
+            {k:'ward_no', l_en:'Ward No', l_mr:'वॉर्ड क्र', type:'number'},
+        ]},
+        water: { title_en:'Water Connection (JJM)', title_mr:'पाणी कनेक्शन (जेजेएम)', icon:'💧', fields:[
+            {k:'applicant_fullname_en', l_en:'Applicant Name (EN)', l_mr:'अर्जदाराचे नाव (इ)', req:true},
+            {k:'applicant_fullname_mr', l_en:'Applicant Name (MR)', l_mr:'अर्जदाराचे नाव (मरा)', req:true},
+            {k:'mobile', l_en:'Mobile 10 digits', l_mr:'मोबाईल 10 अंक', req:true, type:'tel', pat:'[0-9]{10}'},
+            {k:'connection_type', l_en:'Connection Type', l_mr:'कनेक्शन प्रकार', req:true, opts:[['domestic','Domestic / घरगुती'],['commercial','Commercial / व्यावसायिक'],['public','Public Tap / सार्वजनिक नळ']]},
+            {k:'premise_address_en', l_en:'Premise Address (EN)', l_mr:'जागा पत्ता (इ)', req:true},
+            {k:'premise_address_mr', l_en:'Premise Address (MR)', l_mr:'जागा पत्ता (मरा)'},
+            {k:'ownership', l_en:'Premise Ownership', l_mr:'मालकी', opts:[['owned','Owned / स्वतःची'],['rented','Rented / भाड्याने घेतलेली']]},
+            {k:'household_no', l_en:'HH No / Ration Card No', l_mr:'घर क्रमांक / रेशन कार्ड क्र'},
+            {k:'existing_connection', l_en:'Existing connection?', l_mr:'सध्याचे कनेक्शन?', opts:[['no','No / नाही'],['yes','Yes / होय (second)']]},
+            {k:'ward_no', l_en:'Ward No', l_mr:'वॉर्ड क्र', type:'number'},
+        ]},
+        property_tax: { title_en:'Property Tax Assessment', title_mr:'मालमत्ता कर मूल्यांकन', icon:'🏛️', fields:[
+            {k:'applicant_fullname_en', l_en:'Owner Name (EN)', l_mr:'मालकाचे नाव (इ)', req:true},
+            {k:'applicant_fullname_mr', l_en:'Owner Name (MR)', l_mr:'मालकाचे नाव (मरा)', req:true},
+            {k:'mobile', l_en:'Mobile 10 digits', l_mr:'मोबाईल 10 अंक', req:true, type:'tel', pat:'[0-9]{10}'},
+            {k:'property_id', l_en:'Property ID / Survey No', l_mr:'मालमत्ता ID / सर्व्हे क्र', req:true},
+            {k:'property_type', l_en:'Property Type', l_mr:'मालमत्ता प्रकार', req:true, opts:[['residential','Residential / निवासी'],['commercial','Commercial / व्यावसायिक'],['agricultural','Agricultural / कृषी'],['industrial','Industrial / औद्योगिक']]},
+            {k:'builtup_area_sqft', l_en:'Built-up Area (sq ft)', l_mr:'बांधकाम क्षेत्रफळ (चौरस पाय)', req:true, type:'number'},
+            {k:'plot_area_sqft', l_en:'Plot / Land Area (sq ft)', l_mr:'प्लॉट क्षेत्रफळ (चौरस पाय)', type:'number'},
+            {k:'floors', l_en:'Number of Floors', l_mr:'मजली संख्या', type:'number'},
+            {k:'year_of_construction', l_en:'Year of Construction', l_mr:'बांधकाम वर्ष', type:'number'},
+            {k:'assessment_year', l_en:'Assessment Year (e.g. 2026-27)', l_mr:'मूल्यांकन वर्ष', req:true},
+            {k:'tax_amount', l_en:'Self-assessed Tax (₹)', l_mr:'स्व-मूल्यांकन कर (₹)', type:'number'},
+            {k:'payment_mode', l_en:'Payment Mode', l_mr:'पेमेंट पद्धत', opts:[['cash','Cash / रोख'],['online','Online / ऑनलाइन'],['bank','Bank Challan']]},
+            {k:'address_en', l_en:'Property Address (EN)', l_mr:'मालमत्ता पत्ता (इ)', req:true},
+            {k:'ward_no', l_en:'Ward No', l_mr:'वॉर्ड क्र', type:'number'},
+        ]},
+    };
+
+    const SERVICE_SPECIFIC = {
+        birth:['place_of_birth','hospital_name','mother_name','child_name_en','child_name_mr','date_of_birth','gender','weight_g'],
+        death:['date_of_death','place_of_death','cause_of_death','relation_to_applicant','age_years','gender','deceased_name_en','deceased_name_mr'],
+        residence:['duration_stay_years','purpose'],
+        income:['annual_income_rs','occupation','employer_name','family_members','ration_card_type'],
+        water:['connection_type','premise_address_en','premise_address_mr','ownership','existing_connection'],
+        property_tax:['property_id','property_type','builtup_area_sqft','plot_area_sqft','floors','year_of_construction','assessment_year','tax_amount','payment_mode'],
+    };
+
+    function renderServiceForm(serviceType) {
+        const meta = SVC_META[serviceType];
+        const container = document.getElementById('serviceFormContainer');
+        if (!meta || !container) return;
+        const cur = document.body.getAttribute('data-current-lang') || 'en';
+        const ttl = cur === 'mr' ? meta.title_mr : meta.title_en;
+        container.scrollIntoView({behavior:'smooth',block:'start'});
+        container.innerHTML = `
+            <div class="service-form">
+                <div class="apply-stepper">
+                    <div class="stepper-step active" data-en="1. Fill Form" data-mr="1. फॉर्म भरा">1. Fill Form</div>
+                    <div class="stepper-step" data-en="2. Review & Submit" data-mr="2. आढळून घ्या & सबमिट">2. Review & Submit</div>
+                    <div class="stepper-step" data-en="3. Track" data-mr="3. ट्रॅक करा">3. Track ID</div>
+                </div>
+                <h3 style="color:var(--primary);margin-bottom:18px">${meta.icon} ${ttl} — <span style="color:var(--accent);font-size:0.85rem">Application Form</span></h3>
+                <form id="serviceForm" data-svc="${serviceType}">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+                    ${meta.fields.map(f => {
+                        const isReq = f.req ? ' *' : '';
+                        const label = (cur === 'mr' ? f.l_mr : f.l_en) + isReq;
+                        if (f.opts) {
+                            return `<div class="form-group"><label>${label}</label><select name="${f.k}" ${f.req?'required':''}><option value="">-- Select --</option>${f.opts.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('')}</select></div>`;
+                        }
+                        const t = f.type || 'text';
+                        const p = f.pat ? `pattern="${f.pat}"` : (t === 'tel' ? 'pattern="[0-9]{10}" maxlength="10"' : (t === 'email' ? '' : ''));
+                        return `<div class="form-group"><label>${label}</label><input type="${t}" name="${f.k}" ${f.req?'required':''} ${p} ${t==='number'?'step="any"':''} ${t==='tel'?'maxlength="10"':''}></div>`;
+                    }).join('')}
+                    </div>
+                    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('serviceFormContainer').innerHTML=''">Cancel</button>
+                        <button type="submit" class="btn btn-primary">📤 Submit Application</button>
+                    </div>
+                </form>
+                <div id="serviceResult" style="margin-top:16px"></div>
+            </div>`;
+        document.getElementById('serviceForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const resEl = document.getElementById('serviceResult');
+            resEl.innerHTML = '<div class="loader" style="display:inline-block;width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 0.6s linear infinite;vertical-align:middle;margin-right:8px"></div>Submitting...';
+            try {
+                const fd = new FormData(e.target);
+                const raw = Object.fromEntries(fd.entries());
+                const specificKeys = SERVICE_SPECIFIC[serviceType] || [];
+                const service_specific = {};
+                specificKeys.forEach(k => { if (raw[k] !== undefined && raw[k] !== '') service_specific[k] = raw[k]; });
+                const body = {
+                    service_type: serviceType,
+                    applicant_fullname_en: raw.applicant_fullname_en || raw.deceased_name_en || '',
+                    applicant_fullname_mr: raw.applicant_fullname_mr || raw.deceased_name_mr || '',
+                    mobile: raw.mobile || '',
+                    email: raw.email || '',
+                    ward_no: raw.ward_no ? String(raw.ward_no) : '',
+                    address_en: raw.address_en || raw.premise_address_en || '',
+                    address_mr: raw.address_mr || raw.premise_address_mr || '',
+                    service_specific
+                };
+                if (!csrfToken) await fetchCsrf();
+                const headers = { 'Content-Type':'application/json' };
+                if (csrfToken) headers['X-CSRF-Token'] = csrfToken;
+                const r = await fetch(API_BASE + '/service-applications', { method:'POST', headers, body: JSON.stringify(body), credentials:'same-origin' });
+                const d = await r.json().catch(() => ({}));
+                if (!r.ok) { resEl.innerHTML = '<div style="color:var(--danger);background:#fee2e2;padding:12px;border-radius:8px">❌ ' + (d.error || 'Submission failed') + '</div>'; return; }
+                const id = d.data?.id || d.id;
+                resEl.innerHTML = `
+                    <div style="background:#dcfce7;color:#065f46;padding:16px;border-radius:10px;border-left:4px solid var(--success)">
+                        <h4 style="margin:0 0 8px 0">✅ Application Submitted Successfully!</h4>
+                        <p style="margin:4px 0"><strong>Your Application ID:</strong> <span style="font-size:1.1rem;background:#ecfccb;padding:2px 10px;border-radius:6px">${id}</span></p>
+                        <p style="margin:4px 0">📱 Status: <strong>${d.data?.status || d.status || 'submitted'}</strong></p>
+                        <p style="margin:4px 0;opacity:0.9">Please keep this ID safe. You can track it using the Track section above.</p>
+                        <p style="margin-top:10px"><a href="#track" style="color:#065f46;font-weight:600">🔍 Track Application Now →</a></p>
+                    </div>`;
+                showToast('success',`Application #${id} submitted`, `अर्ज #${id} सबमिट`);
+                setTimeout(() => { document.getElementById('track')?.scrollIntoView({behavior:'smooth'}); }, 1500);
+            } catch(err) { resEl.innerHTML = '<div style="color:var(--danger)">❌ Network error - please check your connection.</div>'; }
+        });
+    }
+
+    document.querySelectorAll('#applyGrid a').forEach(a => a.addEventListener('click', (e) => {
+        const svc = a.dataset.svc;
+        if (svc) { e.preventDefault(); renderServiceForm(svc); }
+    }));
+    // handle hash routes for /apply/birth etc
+    window.addEventListener('hashchange', () => {
+        const h = location.hash;
+        if (h.startsWith('#apply/')) { renderServiceForm(h.replace('#apply/','')); }
+        if (h === '#citizen-dashboard' && extraState.citizen) showDashboard();
+    });
+    if (location.hash.startsWith('#apply/')) renderServiceForm(location.hash.replace('#apply/',''));
+
+    // COMPLAINT
+    document.getElementById('complaintForm')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const resEl = document.getElementById('complaintResult');
+        resEl.innerHTML = '<div class="loader" style="display:inline-block;width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 0.6s linear infinite;vertical-align:middle;margin-right:8px"></div>Submitting...';
+        try {
+            const fd = new FormData(e.target);
+            const raw = Object.fromEntries(fd.entries());
+            const body = {
+                complainant_name: raw.complainant_name || '',
+                mobile: raw.mobile || '',
+                complaint_type: raw.complaint_type || '',
+                location_ward: raw.location_ward || '',
+                description_en: raw.description_en || '',
+                description_mr: '',
+                photo_urls: raw.photo_urls ? [raw.photo_urls] : []
+            };
+            if (!csrfToken) await fetchCsrf();
+            const headers = { 'Content-Type':'application/json' };
+            if (csrfToken) headers['X-CSRF-Token'] = csrfToken;
+            const r = await fetch(API_BASE + '/complaints', { method:'POST', headers, body: JSON.stringify(body), credentials:'same-origin' });
+            const d = await r.json().catch(() => ({}));
+            if (!r.ok) { resEl.innerHTML = '<div style="color:var(--danger);background:#fee2e2;padding:12px;border-radius:8px">❌ ' + (d.error || 'Submission failed') + '</div>'; return; }
+            const id = d.data?.id || d.id;
+            resEl.innerHTML = `
+                <div style="background:#fef3c7;color:#92400e;padding:16px;border-radius:10px;border-left:4px solid var(--warning)">
+                    <h4 style="margin:0 0 8px 0">📣 Complaint Registered Successfully!</h4>
+                    <p><strong>Complaint ID:</strong> <span style="background:#fff7ed;padding:2px 10px;border-radius:6px">#${id}</span></p>
+                    <p><strong>Status:</strong> ${d.data?.status || d.status || 'open'} — Panchayat will respond within 7 days.</p>
+                    <p style="margin-top:10px"><a href="#track" style="color:#92400e;font-weight:600">🔍 Track Complaint Status →</a></p>
+                </div>`;
+            showToast('success', `Complaint #${id} registered`, `तक्रार #${id} नोंदणी`);
+            e.target.reset();
+        } catch(err) { resEl.innerHTML = '<div style="color:var(--danger)">❌ Network error.</div>'; }
+    });
+
+    // TRACK
+    document.getElementById('trackBtn')?.addEventListener('click', async () => {
+        const type = document.getElementById('trackType').value;
+        const idOrMobile = (document.getElementById('trackId').value || '').trim();
+        const resEl = document.getElementById('trackResult');
+        if (!idOrMobile) { showToast('warning','Enter Application ID or Mobile number','कृपया अर्ज क्रमांक किंवा मोबाईल टाका'); return; }
+        resEl.innerHTML = '<div style="text-align:center;padding:20px"><div class="loader"></div></div>';
+        try {
+            let endpoint = '', body = {};
+            if (type === 'scheme') { endpoint = '/scheme-applications/track'; body = { tracking_id: idOrMobile, mobile: idOrMobile }; }
+            if (type === 'service') { endpoint = '/service-applications/track'; body = { tracking_id: idOrMobile, mobile: idOrMobile }; }
+            if (type === 'complaint') { endpoint = `/complaints/${encodeURIComponent(idOrMobile)}/track`; body = { complainant_name: '', mobile: /^[0-9]{10}$/.test(idOrMobile) ? idOrMobile : '' }; }
+            let r, d;
+            if (type === 'complaint') {
+                // /complaints/:id/track is POST with name + mobile
+                r = await fetch(API_BASE + endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+            } else {
+                r = await fetch(API_BASE + endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+            }
+            d = await r.json().catch(() => ({}));
+            if (!r.ok || (!d.data && !d.ok)) { resEl.innerHTML = `<div style="background:#fee2e2;color:var(--danger);padding:14px;border-radius:10px">❌ ${d.error || d.message || 'Not found - please check ID'}</div>`; return; }
+            const item = d.data || d;
+            const status = item.status || 'pending';
+            const badgeCls = ['approved','completed','resolved','closed'].includes(status) ? 'approved' : (status === 'rejected' ? 'rejected' : 'pending');
+            const title = type==='scheme' ? (bil(item,'scheme_title') || item.scheme_title_en || '')
+                : (type==='service' ? (item.service_type ? item.service_type.replace(/_/g,' ') : '')
+                : (item.complaint_type || ''));
+            const name = item.applicant_name_en || item.applicant_fullname_en || item.complainant_name || '';
+            const mob = item.mobile || '';
+            const created = item.created_at ? new Date(item.created_at).toLocaleString() : '';
+            const updated = item.updated_at ? new Date(item.updated_at).toLocaleString() : '';
+            const note = item.admin_note || item.admin_reply_text || '';
+            resEl.innerHTML = `
+                <div style="background:white;border:1.5px solid var(--border);border-radius:12px;padding:20px">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+                        <div>
+                            <h4 style="margin:0;color:var(--primary)">${title || 'Application'}</h4>
+                            <p style="margin:4px 0;color:var(--text-gray);font-size:0.85rem">ID: <strong>#${item.id || idOrMobile}</strong>${name ? ' • By: ' + name : ''}${mob ? ' • 📱 ' + mob : ''}</p>
+                        </div>
+                        <span class="badge badge-${badgeCls}" style="font-size:0.85rem">${status}</span>
+                    </div>
+                    ${created ? `<p style="margin:6px 0;font-size:0.82rem;color:var(--text-gray)">📅 Submitted: ${created}${updated ? ' • Updated: ' + updated : ''}</p>` : ''}
+                    ${note ? `<div style="margin-top:12px;padding:10px 12px;background:#fff7ed;border-radius:8px;font-size:0.88rem"><strong style="color:#92400e">Panchayat Reply:</strong><br>${note}</div>` : ''}
+                    ${item.description_en || item.description_mr ? `<div style="margin-top:10px;font-size:0.88rem"><strong>Details:</strong> ${item.description_en || item.description_mr}</div>`:''}
+                    ${item.admin_reply_text ? '' : ''}
+                </div>`;
+        } catch(e) { resEl.innerHTML = '<div style="color:var(--danger)">❌ Error loading.</div>'; }
+    });
+    if (document.getElementById('trackId')) document.getElementById('trackId').addEventListener('keypress', (e) => { if (e.key === 'Enter') document.getElementById('trackBtn').click(); });
+
+    // CONTACT MESSAGE
+    document.getElementById('contactMsgForm')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const resEl = document.getElementById('contactMsgResult');
+        resEl.innerHTML = '<div class="loader" style="display:inline-block;width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 0.6s linear infinite;vertical-align:middle;margin-right:8px"></div>Sending...';
+        try {
+            const fd = new FormData(e.target);
+            const body = Object.fromEntries(fd.entries());
+            if (!csrfToken) await fetchCsrf();
+            const headers = { 'Content-Type':'application/json' };
+            if (csrfToken) headers['X-CSRF-Token'] = csrfToken;
+            const r = await fetch(API_BASE + '/contact-messages', { method:'POST', headers, body: JSON.stringify(body), credentials:'same-origin' });
+            const d = await r.json().catch(() => ({}));
+            if (!r.ok) { resEl.innerHTML = '<div style="color:var(--danger);background:#fee2e2;padding:12px;border-radius:8px">❌ ' + (d.error || 'Failed to send') + '</div>'; return; }
+            resEl.innerHTML = `<div style="background:#dcfce7;color:#065f46;padding:14px;border-radius:10px;border-left:4px solid var(--success)">✅ Message #${d.data?.id || d.id} sent. Panchayat will reply via your email/phone.</div>`;
+            showToast('success','Message sent','संदेश पाठवला');
+            e.target.reset();
+        } catch(err) { resEl.innerHTML = '<div style="color:var(--danger)">❌ Network error.</div>'; }
+    });
+
+    // DASHBOARD
+    async function showDashboard() {
+        const section = document.getElementById('citizen-dashboard');
+        if (!section) return;
+        section.classList.remove('hidden');
+        section.scrollIntoView({ behavior:'smooth', block:'start' });
+        const statsEl = document.getElementById('dashboardStats');
+        const schemeEl = document.getElementById('mySchemes');
+        const compEl = document.getElementById('myComplaints');
+        if (!extraState.citizen) { modalOpen('loginModal'); return; }
+        statsEl.innerHTML = '<div style="grid-column:1/-1;text-align:center"><div class="loader"></div></div>';
+        schemeEl.innerHTML = compEl.innerHTML = '';
+        try {
+            const headers = { 'Content-Type':'application/json' };
+            const [appR, compR] = await Promise.all([
+                fetch(API_BASE + '/citizen/me/applications', { credentials:'same-origin' }),
+                fetch(API_BASE + '/citizen/me/complaints', { credentials:'same-origin' })
+            ]);
+            const appD = await appR.json().catch(() => ({}));
+            const compD = await compR.json().catch(() => ({}));
+            const apps = appD.data || [];
+            const cmps = compD.data || [];
+            statsEl.innerHTML = `
+                <div class="stat-card"><div class="v">${apps.length}</div><div class="l" data-en="My Applications" data-mr="माझे अर्ज">My Applications</div></div>
+                <div class="stat-card"><div class="v" style="color:var(--success)">${apps.filter(a=>a.status==='approved'||a.status==='completed').length}</div><div class="l" data-en="Approved" data-mr="मंजूर">Approved</div></div>
+                <div class="stat-card"><div class="v" style="color:var(--warning)">${apps.filter(a=>a.status!=='approved'&&a.status!=='completed'&&a.status!=='rejected').length}</div><div class="l" data-en="Pending" data-mr="प्रलंबित">Pending</div></div>
+                <div class="stat-card"><div class="v">${cmps.length}</div><div class="l" data-en="My Complaints" data-mr="माझ्या तक्रारी">Complaints Filed</div></div>
+                <div class="stat-card"><div class="v" style="color:var(--success)">${cmps.filter(c=>c.status==='resolved'||c.status==='closed').length}</div><div class="l" data-en="Resolved" data-mr="निराकरण">Resolved</div></div>
+            `;
+            schemeEl.innerHTML = apps.length ? apps.map(a => `
+                <div class="dashboard-item">
+                    <div class="d-info"><strong>${bil(a,'scheme_title') || a.service_type || 'Application #'+a.id}</strong><small>Submitted ${a.created_at?new Date(a.created_at).toLocaleDateString():''} • ID #${a.id}</small></div>
+                    <span class="badge badge-${['approved','completed','resolved','closed'].includes(a.status)?'approved':(a.status==='rejected'?'rejected':'pending')}">${a.status || 'pending'}</span>
+                </div>`).join('') : '<div style="color:var(--text-gray);padding:14px;text-align:center">No applications yet.</div>';
+            compEl.innerHTML = cmps.length ? cmps.map(c => `
+                <div class="dashboard-item">
+                    <div class="d-info"><strong>${c.complaint_type || 'Complaint #'+c.id}</strong><small>${c.location_ward || ''} • Filed ${c.created_at?new Date(c.created_at).toLocaleDateString():''} • #${c.id}</small></div>
+                    <span class="badge badge-${['resolved','closed'].includes(c.status)?'approved':'pending'}">${c.status || 'open'}</span>
+                </div>`).join('') : '<div style="color:var(--text-gray);padding:14px;text-align:center">No complaints filed yet.</div>';
+        } catch(e) {
+            statsEl.innerHTML = '';
+            schemeEl.innerHTML = '<p style="color:var(--text-gray);padding:10px">Please login first.</p>';
+        }
+    }
+
+    // ========= Bootstrap (enhanced) =========
+    async function bootstrap() {
+        await fetchCsrf();
+        await checkCitizen();
+        const [villageData, profileData, schemesData, noticesData, servicesData, contactsData, membersData] = await Promise.all([
+            apiGet('/village'),
+            apiGet('/profile-stats'),
+            apiGet('/schemes'),
+            apiGet('/notices'),
+            apiGet('/services'),
+            apiGet('/contacts'),
+            apiGet('/panchayat-members')
+        ]);
+        const village = villageData ? villageData.data : null;
+        const profile = profileData ? profileData.data : null;
+        const schemes = schemesData ? schemesData.data : null;
+        const notices = noticesData ? noticesData.data : null;
+        const services = servicesData ? servicesData.data : null;
+        const contacts = contactsData ? contactsData.data : null;
+        const members = membersData ? membersData.data : null;
+        if (village) renderHeroStats(village);
+        if (profile) renderProfileGrid(profile);
+        if (schemes) renderSchemesGrid(schemes);
+        if (notices) renderNotices(notices);
+        if (services) renderServices(services);
+        renderContacts(contacts, members, village);
+        renderEmergency(contacts);
+        if (notices || schemes) renderTicker(notices, schemes);
+        // NEW: load projects + gramsabha in parallel (non-blocking)
+        Promise.all([renderProjects(), renderGramsabha()]);
+        observeNew();
+        setLanguage(document.body.getAttribute('data-current-lang') || 'en');
+    }
+
+    bootstrap();
+});
+
+</script>
+
+</body>
+</html>

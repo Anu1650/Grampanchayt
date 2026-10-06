@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "buildCommand": "npm run seed || true",
+  "installCommand": "npm install --omit=dev --include=optional || npm install",
+  "outputDirectory": ".",
+  "framework": null,
+  "functions": {
+    "api/index.js": {
+      "runtime": "@vercel/node@3",
+      "includeFiles": "data/**, server/**, index.html, styles.css, script.js, package.json, node_modules/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/index.js" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    }
+  ]
+}
